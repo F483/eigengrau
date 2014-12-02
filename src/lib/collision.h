@@ -1,12 +1,13 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_COLLISION_H
-#define GBX_COLLISION_H
+#ifndef LIB_COLLISION_H
+#define LIB_COLLISION_H
 
-#include <src/gbx/common.h>
-#include <src/gbx/lib/fix.h>
-#include <src/gbx/lib/vec.h>
+#include <src/lib/common.h>
+#include <src/lib/fix.h>
+#include <src/lib/vec.h>
+
 
 ////////////
 // CIRCLE //

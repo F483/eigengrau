@@ -1,11 +1,11 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_GFX_H
-#define GBX_GFX_H
+#ifndef GBA_GFX_H
+#define GBA_GFX_H
 
-#include <src/gbx/common.h>
-#include <src/gbx/lib/math.h>
+#include <src/lib/common.h>
+#include <src/lib/math.h>
 
 #define GFX_DISPLAY_WIDTH     240
 #define GFX_DISPLAY_HEIGHT    160

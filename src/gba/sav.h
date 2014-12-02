@@ -1,10 +1,10 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_SAV_H
-#define GBX_SAV_H
+#ifndef GBA_SAV_H
+#define GBA_SAV_H
 
-#include <src/gbx/common.h>
+#include <src/lib/common.h>
 
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -1,11 +1,11 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_MAP_H
-#define GBX_MAP_H
+#ifndef GBA_MAP_H
+#define GBA_MAP_H
 
-#include <src/gbx/common.h>
-#include <src/gbx/gba/gfx.h>
+#include <src/lib/common.h>
+#include <src/gba/gfx.h>
 
 
 ////////////////////////////////////////////////////////////////////////////////

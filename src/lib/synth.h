@@ -1,10 +1,10 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_SYNTH_H
-#define GBX_SYNTH_H
+#ifndef LIB_SYNTH_H
+#define LIB_SYNTH_H
 
-#include <src/gbx/gba/snd.h>
+#include <src/gba/snd.h>
 
 #define SYNTH_NOTE_COUNT  12
 typedef enum {

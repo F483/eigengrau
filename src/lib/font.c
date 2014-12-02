@@ -1,7 +1,8 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#include <src/gbx.h>
+#include <src/lib.h>
+#include <src/gba.h>
 #include <stdio.h>
 #include <stdarg.h>
 

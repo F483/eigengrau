@@ -4,7 +4,7 @@
 #ifndef SCENES_H
 #define SCENES_H
 
-#include <src/gbx.h>
+#include <src/lib.h>
 
 extern const Scene company; // company splash screen
 

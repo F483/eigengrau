@@ -29,10 +29,10 @@
 //   plus (+) behind their numbers.
 // * I've switched to the standard BIOS names. 
 
-#ifndef GBX_BIOS
-#define GBX_BIOS
+#ifndef GBA_BIOS
+#define GBA_BIOS
 
-#include <src/gbx/common.h>
+#include <src/lib/common.h>
 
 /*!
 	\addtogroup grpBios
@@ -552,4 +552,4 @@ Uint32 DivArmAbs(int den, int num);
 void CpuFastFill(Uint32 wd, void *dst, Uint32 mode);
 
 
-#endif // GBX_BIOS
+#endif // GBA_BIOS

@@ -1,11 +1,11 @@
 // Copyright (c) 2014 Fabian Barkhau <abian.barkhau@gmail.com>
 // License: MIT (see LICENSE.TXT file)
 
-#ifndef GBX_FIX_H
-#define GBX_FIX_H
+#ifndef LIB_FIX_H
+#define LIB_FIX_H
 
-#include <src/gbx/common.h>
-#include <src/gbx/lib/math.h>
+#include <src/lib/common.h>
+#include <src/lib/math.h>
 
 // 100% pure inline functional code !
 

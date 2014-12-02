@@ -2,7 +2,8 @@
 // License: MIT (see LICENSE.TXT file)  
 
 #include <gfx/bg_company.h>
-#include <src/gbx.h>
+#include <src/lib.h>
+#include <src/gba.h>
 #include <src/scenes.h>
 
 // memory setup
@@ -43,9 +44,4 @@ static void tick(){
   company_ttl--;
 }
 
-static void draw(){
-  //
-}
-
-const Scene company = {true, true, &load, &tick, &draw};
-
+const Scene company = { true, &load, &tick, NULL, SCENE_TRANS_NONE, SCENE_TRANS_NONE };

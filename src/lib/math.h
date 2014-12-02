@@ -1,10 +1,11 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_MATH_H
-#define GBX_MATH_H
+#ifndef LIB_MATH_H
+#define LIB_MATH_H
 
-#include <src/gbx/common.h>
+#include <src/lib/common.h>
+#include <src/gba/bios.h>
 
 #define PI            3.14159265358979323846
 
@@ -31,4 +32,4 @@ inline Uint32 isqrt(Uint32 n){
   return Sqrt(n);
 }
 
-#endif // GBX_MATH_H
+#endif // LIB_MATH_H

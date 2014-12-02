@@ -1,8 +1,8 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_COMMON_H
-#define GBX_COMMON_H
+#ifndef LIB_COMMON_H
+#define LIB_COMMON_H
 
 #ifndef DEBUG
 #define NDEBUG

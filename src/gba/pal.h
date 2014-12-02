@@ -1,10 +1,10 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_PAL_H
-#define GBX_PAL_H
+#ifndef GBA_PAL_H
+#define GBA_PAL_H
 
-#include <src/gbx/common.h>
+#include <src/lib/common.h>
 
 #define PAL_MEM_SIZE          0x00400 // bytes (1kb)
 #define pal_mem               ((Uint16*)(0x05000000)) // no 8bit writes !

@@ -1,10 +1,10 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_INPUT_H
-#define GBX_INPUT_H
+#ifndef GBA_INPUT_H
+#define GBA_INPUT_H
 
-#include <src/gbx/common.h>
+#include <src/lib/common.h>
 
 #define input_reg_key     (*(VUint16*)(0x04000130))
 

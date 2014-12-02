@@ -1,7 +1,7 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#include <src/gbx.h>
+#include <src/lib.h>
 
 const Uint32 synth_note_rate_map[SYNTH_NOTE_COUNT] = {
   8013, // C

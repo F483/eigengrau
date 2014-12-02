@@ -1,11 +1,11 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBX_TILE_H
-#define GBX_TILE_H
+#ifndef GBA_TILE_H
+#define GBA_TILE_H
 
-#include <src/gbx/common.h>
-#include <src/gbx/gba/gfx.h>
+#include <src/lib/common.h>
+#include <src/gba/gfx.h>
 
 typedef struct { Uint32 data[8];  } Tile4; // 4bpp 8x8 tile
 typedef struct { Uint32 data[16]; } Tile8; // 8bpp 8x8 tile
