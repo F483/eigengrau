@@ -2,7 +2,7 @@
 // License: MIT (see LICENSE.TXT file)  
 
 #include <src/lib/scene.h>
-#include <src/gba.h>
+#include <src/gba/all.h>
 
 Scene* scene_current = NULL;
 Scene* scene_next = NULL;

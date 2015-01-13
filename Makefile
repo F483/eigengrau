@@ -4,7 +4,7 @@
 
 MODE = debug
 EMULATOR = vba
-GAME = sperotactics
+GAME = eigengrau
 
 
 #########

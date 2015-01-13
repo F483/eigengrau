@@ -1,6 +1,6 @@
-# sperotactics
+# eigengrau
 
-An turn based strategy game.
+A synth and step sequcencer for the GBA.
 
 # Installation for development
 
@@ -9,8 +9,8 @@ An turn based strategy game.
 
     # Clone repository
     cd where/you/keep/your/repos
-    git clone https://github.com/F483/sperotactics
-    cd sperotactics
+    git clone https://github.com/F483/eigengrau
+    cd eigengrau
 
     # install devkitPro to building gba games
     sudo bin/install_devkitpro.sh

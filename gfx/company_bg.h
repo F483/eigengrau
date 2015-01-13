@@ -1,9 +1,9 @@
 
-//{{BLOCK(bg_company_)
+//{{BLOCK(company_bg_)
 
 //======================================================================
 //
-//	bg_company_, 256x256@8, 
+//	company_bg_, 256x256@8, 
 //	+ palette 256 entries, not compressed
 //	+ 105 tiles (t|f|p reduced) not compressed
 //	+ regular map (flat), not compressed, 32x32 
@@ -15,18 +15,18 @@
 //
 //======================================================================
 
-#ifndef GRIT_BG_COMPANY__H
-#define GRIT_BG_COMPANY__H
+#ifndef GRIT_COMPANY_BG__H
+#define GRIT_COMPANY_BG__H
 
-#define bg_company_TilesLen 6720
-extern const unsigned short bg_company_Tiles[3360];
+#define company_bg_TilesLen 6720
+extern const unsigned short company_bg_Tiles[3360];
 
-#define bg_company_MapLen 2048
-extern const unsigned short bg_company_Map[1024];
+#define company_bg_MapLen 2048
+extern const unsigned short company_bg_Map[1024];
 
-#define bg_company_PalLen 512
-extern const unsigned short bg_company_Pal[256];
+#define company_bg_PalLen 512
+extern const unsigned short company_bg_Pal[256];
 
-#endif // GRIT_BG_COMPANY__H
+#endif // GRIT_COMPANY_BG__H
 
 //}}BLOCK(bg_company_)

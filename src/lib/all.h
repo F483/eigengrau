@@ -1,8 +1,8 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef LIB_H
-#define LIB_H
+#ifndef LIB_ALL_H
+#define LIB_ALL_H
 
 #include <src/lib/common.h>
 #include <src/lib/math.h>

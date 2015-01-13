@@ -4,9 +4,10 @@
 #ifndef SCENES_H
 #define SCENES_H
 
-#include <src/lib.h>
+#include <src/lib/all.h>
 
-extern const Scene company; // company splash screen
+extern const Scene company;
+extern const Scene sequencer;
 
 #endif
 

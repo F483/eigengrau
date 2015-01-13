@@ -1,8 +1,8 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#ifndef GBA_H
-#define GBA_H
+#ifndef GBA_ALL_H
+#define GBA_ALL_H
 
 #include <src/gba/bios.h>
 #include <src/gba/gfx.h>

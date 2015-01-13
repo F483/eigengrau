@@ -1,21 +1,21 @@
 // Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
 // License: MIT (see LICENSE.TXT file)  
 
-#include <gfx/bg_company.h>
-#include <src/lib.h>
-#include <src/gba.h>
-#include <src/scenes.h>
+#include <gfx/company_bg.h>
+#include <src/lib/all.h>
+#include <src/gba/all.h>
+#include <src/scenes/all.h>
 
 // memory setup
 #define BG_TILEBANK       0
 #define BG_MAPBANK        31
 
 // source tiles and maps
-#define BG_TILESLEN       bg_company_TilesLen
-#define BG_TILES          (Tile8*)&bg_company_Tiles
-#define BG_MAPLEN         bg_company_MapLen
-#define BG_MAP            (Uint16*)&bg_company_Map
-#define BG_PALETTE        (Uint16*)&bg_company_Pal
+#define BG_TILESLEN       company_bg_TilesLen
+#define BG_TILES          (Tile8*)&company_bg_Tiles
+#define BG_MAPLEN         company_bg_MapLen
+#define BG_MAP            (Uint16*)&company_bg_Map
+#define BG_PALETTE        (Uint16*)&company_bg_Pal
 
 // Player input
 #define NEXT_KEYS         (INPUT_KEY_START | INPUT_KEY_SELECT | \
@@ -39,7 +39,7 @@ static void load(){
 
 static void tick(){
   if (!company_ttl or input_key_down(NEXT_KEYS)){
-    scene_set(NULL);
+    scene_set(&sequencer);
   } 
   company_ttl--;
 }

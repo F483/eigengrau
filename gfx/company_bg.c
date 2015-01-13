@@ -1,9 +1,9 @@
 
-//{{BLOCK(bg_company_)
+//{{BLOCK(company_bg_)
 
 //======================================================================
 //
-//	bg_company_, 256x256@8, 
+//	company_bg_, 256x256@8, 
 //	+ palette 256 entries, not compressed
 //	+ 105 tiles (t|f|p reduced) not compressed
 //	+ regular map (flat), not compressed, 32x32 
@@ -15,7 +15,7 @@
 //
 //======================================================================
 
-const unsigned short bg_company_Tiles[3360] __attribute__((aligned(4)))=
+const unsigned short company_bg_Tiles[3360] __attribute__((aligned(4)))=
 {
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
@@ -491,7 +491,7 @@ const unsigned short bg_company_Tiles[3360] __attribute__((aligned(4)))=
 	0x0303,0x0303,0x0303,0x0303,0x0303,0x0303,0x0303,0x0303,
 };
 
-const unsigned short bg_company_Map[1024] __attribute__((aligned(4)))=
+const unsigned short company_bg_Map[1024] __attribute__((aligned(4)))=
 {
 	0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,
 	0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,
@@ -638,7 +638,7 @@ const unsigned short bg_company_Map[1024] __attribute__((aligned(4)))=
 	0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,
 };
 
-const unsigned short bg_company_Pal[256] __attribute__((aligned(4)))=
+const unsigned short company_bg_Pal[256] __attribute__((aligned(4)))=
 {
 	0x0000,0x7E10,0x367F,0x7FFF,0x0000,0x0000,0x0000,0x0000,
 	0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,0x0001,
@@ -677,4 +677,4 @@ const unsigned short bg_company_Pal[256] __attribute__((aligned(4)))=
 	0x001F,0x001F,0x001F,0x001F,0x001F,0x001F,0x001F,0x001F,
 };
 
-//}}BLOCK(bg_company_)
+//}}BLOCK(company_bg_)
