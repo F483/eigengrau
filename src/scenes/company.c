@@ -44,4 +44,4 @@ static void tick(){
   company_ttl--;
 }
 
-const Scene company = { true, &load, &tick, NULL, SCENE_TRANS_NONE, SCENE_TRANS_NONE };
+const Scene company = { true, &load, &tick, NULL };

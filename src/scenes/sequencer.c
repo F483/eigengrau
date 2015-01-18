@@ -18,14 +18,17 @@
 #define BG_PALETTE        (Uint16*)&sequencer_bg_Pal
 
 static void load(){
+  // setup display
   gfx_reg_display = GFX_DISPLAY_MODE0 | GFX_DISPLAY_BG0;
+
+  // setup background
   gfx_reg_bg0 = GFX_BG_TILE_MEM(BG_TILEBANK) | GFX_BG_MAP_MEM(BG_MAPBANK) | 
                 GFX_BG_REG_32x32 | GFX_BG_8BPP;
 
-  // copy tiles, map and palette
+  // copy background tiles, map and palette
   memcpy(tile_bank_mem_8bpp(BG_TILEBANK), BG_TILES, BG_TILESLEN);
   memcpy(map_bank_mem(BG_MAPBANK), BG_MAP, BG_MAPLEN);
   pal_set_bg(BG_PALETTE);
 }
 
-const Scene sequencer = { true, &load, NULL, NULL, SCENE_TRANS_NONE, SCENE_TRANS_NONE };
+const Scene sequencer = { true, &load, NULL, NULL };

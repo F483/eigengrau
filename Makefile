@@ -20,7 +20,7 @@ LIB_PATHS = -L$(PATH_DEVKITARM)/lib
 # FILES #
 #########
 
-ROM = pkg/$(GAME).gba
+ROM = $(GAME).gba
 
 # c source files
 C_SRC := $(shell find | grep -i "src/.*\.c$$") # source

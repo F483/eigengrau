@@ -6,23 +6,6 @@
 
 #include <src/lib/common.h>
 
-//////////////////////
-// SCENE TRANSITION //
-//////////////////////
-
-#define SCENE_TRANS(draw, lock, time)  { draw, lock, time, time }
-#define SCENE_TRANS_NONE               SCENE_TRANS(NULL, false, 0)
-
-typedef void (*TransDrawFunc)(Uint32 time, Uint32 ttl);
-
-typedef struct {
-  TransDrawFunc draw; // draw func (called after scene.draw)
-  Bool          lock; // disable user input while transitoning
-  Uint32        time; // total time in frames
-  Uint32        ttl;  // remaning time in frames
-} SceneTrans;
-
-
 ///////////
 // SCENE //
 ///////////
@@ -36,8 +19,6 @@ typedef struct {
   SceneLoad   load;   // load scene data (called before transition draw)
   SceneTick   tick;   // update scene state
   SceneDraw   draw;   // draw scene state
-  SceneTrans  enter;  // enter scene transition
-  SceneTrans  exit;   // exit scene transition
 } Scene;
 
 void scene_set(const Scene* scene); // will be loaded during next vblank
