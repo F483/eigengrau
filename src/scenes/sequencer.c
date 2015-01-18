@@ -17,7 +17,9 @@
 #define BG_MAP            (Uint16*)&sequencer_bg_Map
 #define BG_PALETTE        (Uint16*)&sequencer_bg_Pal
 
-static void load(){
+
+void load_gfx(){
+
   // setup display
   gfx_reg_display = GFX_DISPLAY_MODE0 | GFX_DISPLAY_BG0;
 
@@ -29,6 +31,11 @@ static void load(){
   memcpy(tile_bank_mem_8bpp(BG_TILEBANK), BG_TILES, BG_TILESLEN);
   memcpy(map_bank_mem(BG_MAPBANK), BG_MAP, BG_MAPLEN);
   pal_set_bg(BG_PALETTE);
+
+}
+
+static void load(){
+  load_gfx();
 }
 
 const Scene sequencer = { true, &load, NULL, NULL };
