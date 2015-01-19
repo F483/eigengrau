@@ -189,7 +189,7 @@ inline void gfx_fade(Sint32 ttl, Uint32 duration, Bool fadein, Bool brighten){
   }
 
   Uint32 n = fadein ? (Uint32)ttl : (duration - ttl);
-  gfx_reg_cfx_fade = relative_align(n, 0, duration, 0, GFX_CFX_GAMMA_RANGE);
+  gfx_reg_cfx_fade = rescale(n, 0, duration, 0, GFX_CFX_GAMMA_RANGE);
 }
 
 inline void gfx_fade_into_white(Sint32 ttl, Uint32 duration){

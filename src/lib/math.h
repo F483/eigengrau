@@ -11,21 +11,21 @@
 
 #define SQUARED(n)    ((n) * (n))
 
-inline Sint32 relative_align(Sint32 r_num, Sint32 r_min, Sint32 r_max,
-                             Sint32 n_min, Sint32 n_max){
+inline Sint32 rescale(Sint32 num, Sint32 old_min, Sint32 old_max,
+                      Sint32 new_min, Sint32 new_max){
   // normalize
-  Sint32 r_len = r_max - r_min;
-  Sint32 n_len = n_max - n_min;
-  Sint32 r_pos = r_num - r_min;
+  Sint32 old_len = old_max - old_min;
+  Sint32 new_len = new_max - new_min;
+  Sint32 old_pos = num - old_min;
 
   // calculate relative position
-  Sint32 n_pos = 0;
-  if (r_len != 0){ // avoid division by zero
-    n_pos = (n_len * r_pos) / r_len;
+  Sint32 new_pos = 0;
+  if (old_len != 0){ // avoid division by zero
+    new_pos = (new_len * old_pos) / old_len;
   } 
 
   // denormalize
-  return n_pos + n_min;
+  return new_pos + new_min;
 }
 
 inline Uint32 isqrt(Uint32 n){
