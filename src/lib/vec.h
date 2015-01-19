@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef LIB_VEC_H
 #define LIB_VEC_H
@@ -8,7 +8,7 @@
 #include <src/lib/fix.h>
 
 // 2D Vector
-typedef struct { 
+typedef struct {
   Fix x, y; // Never access directly! Use vec_get_* and vec_set_*
 } Vec;
 
@@ -90,27 +90,27 @@ inline Vec vec_set_y_int(Vec v, Sint32 y){ // for convience
 
 inline Bool vec_eq(Vec l, Vec r){
   return fix_eq(l.x, r.x) and fix_eq(l.y, r.y);
-} 
+}
 
 inline Bool vec_neq(Vec l, Vec r){
   return !vec_eq(l, r);
-} 
+}
 
 //////////////
 // ADDITION //
 //////////////
 
 inline Vec vec_add(Vec l, Vec r){
-  return vec_make(fix_add(l.x, r.x), fix_add(l.y, r.y)); 
-} 
+  return vec_make(fix_add(l.x, r.x), fix_add(l.y, r.y));
+}
 
 inline Vec vec_add_fix(Vec v, Fix f){ // for convience
   return vec_add(v, vec_make(f, f));
-} 
+}
 
 inline Vec vec_add_int(Vec v, Sint32 i){ // for convience
   return vec_add(v, vec_make_int(i, i));
-} 
+}
 
 
 /////////////////
@@ -118,16 +118,16 @@ inline Vec vec_add_int(Vec v, Sint32 i){ // for convience
 /////////////////
 
 inline Vec vec_sub(Vec l, Vec r){
-  return vec_make(fix_sub(l.x, r.x), fix_sub(l.y, r.y)); 
-} 
+  return vec_make(fix_sub(l.x, r.x), fix_sub(l.y, r.y));
+}
 
 inline Vec vec_sub_fix(Vec v, Fix f){ // for convience
   return vec_sub(v, vec_make(f, f));
-} 
+}
 
 inline Vec vec_sub_int(Vec v, Sint32 i){ // for convience
   return vec_sub(v, vec_make_int(i, i));
-} 
+}
 
 
 ////////////////////
@@ -135,16 +135,16 @@ inline Vec vec_sub_int(Vec v, Sint32 i){ // for convience
 ////////////////////
 
 inline Vec vec_mul(Vec l, Vec r){
-  return vec_make(fix_mul64(l.x, r.x), fix_mul64(l.y, r.y)); 
-} 
+  return vec_make(fix_mul64(l.x, r.x), fix_mul64(l.y, r.y));
+}
 
 inline Vec vec_mul_fix(Vec v, Fix f){ // for convience
   return vec_mul(v, vec_make(f, f));
-} 
+}
 
 inline Vec vec_mul_int(Vec v, Sint32 i){ // for convience
   return vec_mul(v, vec_make_int(i, i));
-} 
+}
 
 
 //////////////
@@ -152,16 +152,16 @@ inline Vec vec_mul_int(Vec v, Sint32 i){ // for convience
 //////////////
 
 inline Vec vec_div(Vec l, Vec r){
-  return vec_make(fix_div64(l.x, r.x), fix_div64(l.y, r.y)); 
-} 
+  return vec_make(fix_div64(l.x, r.x), fix_div64(l.y, r.y));
+}
 
 inline Vec vec_div_fix(Vec v, Fix f){ // for convience
   return vec_div(v, vec_make(f, f));
-} 
+}
 
 inline Vec vec_div_int(Vec v, Sint32 i){ // for convience
   return vec_div(v, vec_make_int(i, i));
-} 
+}
 
 
 //////////////
@@ -169,7 +169,7 @@ inline Vec vec_div_int(Vec v, Sint32 i){ // for convience
 //////////////
 
 inline Vec vec_neg(Vec v){
-  return vec_mul_int(v, -1); 
+  return vec_mul_int(v, -1);
 }
 
 
@@ -248,7 +248,7 @@ inline Fix vec_dot(Vec l, Vec r){
 inline Fix vec_cross(Vec l, Vec r){
   return fix_sub(fix_mul64(l.x, r.y), fix_mul64(l.y, r.x));
 }
-    
+
 inline Vec vec_projection(Vec l, Vec r){
   return vec_mul_fix(r, fix_div64(vec_dot(l, r), vec_length_sqrd(r)));
 }

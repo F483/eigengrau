@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef LIB_ALL_H
 #define LIB_ALL_H

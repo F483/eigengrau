@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef LIB_SCENE_H
 #define LIB_SCENE_H
@@ -27,7 +27,7 @@ void scene_run(); // main game loop
 extern Uint32 scene_frame; // incremented every frame and reset before loading
 extern Uint32 scene_total_frames; // incremented every frame
 
-extern Uint32 scene_vcount_draw; // vcount at end of draw 
+extern Uint32 scene_vcount_draw; // vcount at end of draw
 extern Uint32 scene_vcount_tick; // vcount at end of tick
 
 // TODO maybe change scene_*_frame fps to float for 0.5 fps etc

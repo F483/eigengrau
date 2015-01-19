@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #include <gfx/company_bg.h>
 #include <src/lib/all.h>
@@ -28,7 +28,7 @@ Uint32 company_ttl;
 static void load(){
   company_ttl = DISPLAY_DURATION;
   gfx_reg_display = GFX_DISPLAY_MODE0 | GFX_DISPLAY_BG0;
-  gfx_reg_bg0 = GFX_BG_TILE_MEM(BG_TILEBANK) | GFX_BG_MAP_MEM(BG_MAPBANK) | 
+  gfx_reg_bg0 = GFX_BG_TILE_MEM(BG_TILEBANK) | GFX_BG_MAP_MEM(BG_MAPBANK) |
                 GFX_BG_REG_32x32 | GFX_BG_4BPP;
 
   // copy tiles, map and palette
@@ -40,7 +40,7 @@ static void load(){
 static void tick(){
   if (!company_ttl or input_key_down(NEXT_KEYS)){
     scene_set(&scenes_sequencer);
-  } 
+  }
   company_ttl--;
 }
 

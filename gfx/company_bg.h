@@ -3,10 +3,10 @@
 
 //======================================================================
 //
-//	company_bg_, 256x256@4, 
+//	company_bg_, 256x256@4,
 //	+ palette 256 entries, not compressed
 //	+ 99 tiles (t|f|p reduced) not compressed
-//	+ regular map (flat), not compressed, 32x32 
+//	+ regular map (flat), not compressed, 32x32
 //	Total size: 512 + 3168 + 2048 = 5728
 //
 //	Time-stamp: 2015-01-19, 16:08:41

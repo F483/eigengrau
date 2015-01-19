@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef GBA_OBJ_H
 #define GBA_OBJ_H
@@ -13,7 +13,7 @@
 
 #define OBJ_OAM_SIZE        0x00400 // bytes (1kb)
 #define obj_oam_mem         ((Uint16*)(0x07000000)) // no 8bit writes !
-                           
+
 #define OBJ_MEM_LEN         (OBJ_OAM_SIZE / 8)
 #define OBJ_MEM             ((Obj*)obj_oam_mem)
 
@@ -59,10 +59,10 @@ typedef struct {
 #define OBJ_A0_SHAPE_WIDE   0x4000  // Tall shape (height > width)
 #define OBJ_A0_SHAPE_TALL   0x8000  // Wide shape (height < width)
 
-inline Uint16 obj_a0_build(Uint16 y, Uint16 mode, Uint16 blend, 
+inline Uint16 obj_a0_build(Uint16 y, Uint16 mode, Uint16 blend,
                            Uint16 mosaic, Uint16 bpp, Uint16 shape){
-  return ((y & OBJ_A0_Y_MASK) | (mode & OBJ_A0_MODE_MASK) | 
-          (blend & OBJ_A0_BLEND_MASK) | (mosaic & OBJ_A0_MOSAIC) | 
+  return ((y & OBJ_A0_Y_MASK) | (mode & OBJ_A0_MODE_MASK) |
+          (blend & OBJ_A0_BLEND_MASK) | (mosaic & OBJ_A0_MOSAIC) |
           (bpp & OBJ_A0_8BPP)| (shape & OBJ_A0_SHAPE_MASK));
 }
 
@@ -149,7 +149,7 @@ inline Uint16 obj_get_x(Obj obj){
 #define OBJ_A2_TILE_ID_MASK  0x03FF
 
 #define OBJ_A2_PRIO_MASK     0x0C00
-#define OBJ_A2_PRIO_SHIFT    10                         
+#define OBJ_A2_PRIO_SHIFT    10
 #define OBJ_A2_PRIO(n)       ((n) << OBJ_A2_PRIO_SHIFT)
 
 #define OBJ_A2_PALBANK_MASK  0xF000
@@ -157,8 +157,8 @@ inline Uint16 obj_get_x(Obj obj){
 #define OBJ_A2_PALBANK(n)    ((n) << OBJ_A2_PALBANK_SHIFT)
 
 inline Uint16 obj_a2_build(Uint16 id, Uint16 prio, Uint16 palbank){
-  return (((palbank << OBJ_A2_PALBANK_SHIFT) & OBJ_A2_PALBANK_MASK) | 
-          ((prio << OBJ_A2_PRIO_SHIFT) & OBJ_A2_PRIO_MASK) | 
+  return (((palbank << OBJ_A2_PALBANK_SHIFT) & OBJ_A2_PALBANK_MASK) |
+          ((prio << OBJ_A2_PRIO_SHIFT) & OBJ_A2_PRIO_MASK) |
           (id & OBJ_A2_TILE_ID_MASK));
 }
 
@@ -278,7 +278,7 @@ inline Uint16 obj_get_h(Obj obj){
   }
 }
 
-inline Obj obj_build_8bpp(Uint16 x, Uint16 y, Uint16 shape, 
+inline Obj obj_build_8bpp(Uint16 x, Uint16 y, Uint16 shape,
                           Uint16 size, Uint16 id){
   Obj obj;
   obj.attr0 = obj_a0_build(

@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef GBA_INPUT_H
 #define GBA_INPUT_H
@@ -44,18 +44,18 @@ inline Bool input_key_up(Uint16 key){
 }
 
 // Check if key is held (down now and before).
-inline Bool input_key_held(Uint16 key){   
-  return (_input_key_curr bitand _input_key_prev) bitand key;  
+inline Bool input_key_held(Uint16 key){
+  return (_input_key_curr bitand _input_key_prev) bitand key;
 }
 
 // Check if key is pressed now but not before.
-inline Bool input_key_hit(Uint16 key){   
-  return (_input_key_curr bitand compl _input_key_prev) bitand key;  
+inline Bool input_key_hit(Uint16 key){
+  return (_input_key_curr bitand compl _input_key_prev) bitand key;
 }
 
 // Check if key was pressed before but not now.
-inline Bool input_key_released(Uint16 key){   
-  return (compl _input_key_curr bitand _input_key_prev) bitand key;  
+inline Bool input_key_released(Uint16 key){
+  return (compl _input_key_curr bitand _input_key_prev) bitand key;
 }
 
 #endif

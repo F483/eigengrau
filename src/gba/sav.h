@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef GBA_SAV_H
 #define GBA_SAV_H
@@ -60,7 +60,7 @@ inline void sav_init(Uint32 nonce){
       SAV_MEM[i] = 0; // wipe with zeros
     }
     sav_write32(0, nonce);
-  } 
+  }
 }
 
 #endif

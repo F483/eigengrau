@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef GBA_GFX_H
 #define GBA_GFX_H
@@ -90,7 +90,7 @@
 // E-F  GFX_BG_(REG|AFF)_**x**  Set map size.                                 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#define GFX_BG_MOSAIC           0x0040  // enable mosaic effect 
+#define GFX_BG_MOSAIC           0x0040  // enable mosaic effect
 #define GFX_BG_WRAP             0x2000  // Wrap around edges of affine bgs
 #define GFX_BG_4BPP             0       // 4bpp tiles with 16x16 palette
 #define GFX_BG_8BPP             0x0080  // 8bpp tiles with 256 palette
@@ -143,12 +143,12 @@
 #define GFX_CFX_CTRL_T2_OBJ     0x1000 // 2nd Target Top-most OBJ
 #define GFX_CFX_CTRL_T2_BD      0x2000 // 2nd Target Backdrop
 
-// EVA Coefficient (1st Target) 
+// EVA Coefficient (1st Target)
 #define GFX_CFX_ALPHA_T1_MASK   0x001F
 #define GFX_CFX_ALPHA_T1_SHIFT  0
 #define GFX_CFX_ALPHA_T1(n)     ((n) << GFX_CFX_ALPHA_EVA_SHIFT)
 
-// EVB Coefficient (2st Target) 
+// EVB Coefficient (2st Target)
 #define GFX_CFX_ALPHA_T2_MASK   0x1F
 #define GFX_CFX_ALPHA_T2_SHIFT  8
 #define GFX_CFX_ALPHA_T2(n)     ((n) << GFX_CFX_ALPHA_EVB_SHIFT)
@@ -174,17 +174,17 @@
  */
 inline void gfx_fade(Sint32 ttl, Uint32 duration, Bool fadein, Bool brighten){
   if (ttl >= (Sint32)duration or ttl < 0) // to early or done
-    return; 
+    return;
 
   if (brighten){
-    gfx_reg_cfx_ctrl = GFX_CFX_CTRL_GAMMA_INC | GFX_CFX_CTRL_T1_BG0 | 
-                       GFX_CFX_CTRL_T1_BG1 | GFX_CFX_CTRL_T1_BG2 | 
-                       GFX_CFX_CTRL_T1_BG3 | GFX_CFX_CTRL_T1_OBJ | 
+    gfx_reg_cfx_ctrl = GFX_CFX_CTRL_GAMMA_INC | GFX_CFX_CTRL_T1_BG0 |
+                       GFX_CFX_CTRL_T1_BG1 | GFX_CFX_CTRL_T1_BG2 |
+                       GFX_CFX_CTRL_T1_BG3 | GFX_CFX_CTRL_T1_OBJ |
                        GFX_CFX_CTRL_T1_BD;
   } else {
-    gfx_reg_cfx_ctrl = GFX_CFX_CTRL_GAMMA_DEC | GFX_CFX_CTRL_T1_BG0 | 
-                       GFX_CFX_CTRL_T1_BG1 | GFX_CFX_CTRL_T1_BG2 | 
-                       GFX_CFX_CTRL_T1_BG3 | GFX_CFX_CTRL_T1_OBJ | 
+    gfx_reg_cfx_ctrl = GFX_CFX_CTRL_GAMMA_DEC | GFX_CFX_CTRL_T1_BG0 |
+                       GFX_CFX_CTRL_T1_BG1 | GFX_CFX_CTRL_T1_BG2 |
+                       GFX_CFX_CTRL_T1_BG3 | GFX_CFX_CTRL_T1_OBJ |
                        GFX_CFX_CTRL_T1_BD;
   }
 

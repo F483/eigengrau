@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef GBA_TILE_H
 #define GBA_TILE_H
@@ -22,7 +22,7 @@ typedef struct { Uint32 data[16]; } Tile8; // 8bpp 8x8 tile
 // MAP_MEM        0....7 8...15 16..23 24..31                                 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#define TILE_BANK_COUNT         4 
+#define TILE_BANK_COUNT         4
 #define TILE_BANK_SIZE          0x4000 // bytes (16kb)
 #define TILE_BANK_LEN_4BPP      (TILE_BANK_SIZE / TILE_SIZE_4BPP)
 #define TILE_BANK_LEN_8BPP      (TILE_BANK_SIZE / TILE_SIZE_8BPP)

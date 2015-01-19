@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef LIB_MATH_H
 #define LIB_MATH_H
@@ -22,7 +22,7 @@ inline Sint32 rescale(Sint32 num, Sint32 old_min, Sint32 old_max,
   Sint32 new_pos = 0;
   if (old_len != 0){ // avoid division by zero
     new_pos = (new_len * old_pos) / old_len;
-  } 
+  }
 
   // denormalize
   return new_pos + new_min;

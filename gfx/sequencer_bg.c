@@ -3,10 +3,10 @@
 
 //======================================================================
 //
-//	sequencer_bg_, 256x256@4, 
+//	sequencer_bg_, 256x256@4,
 //	+ palette 256 entries, not compressed
 //	+ 243 tiles (t|f|p reduced) not compressed
-//	+ regular map (flat), not compressed, 32x32 
+//	+ regular map (flat), not compressed, 32x32
 //	Total size: 512 + 7776 + 2048 = 10336
 //
 //	Time-stamp: 2015-01-19, 18:57:54

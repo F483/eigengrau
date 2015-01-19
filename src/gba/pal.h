@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef GBA_PAL_H
 #define GBA_PAL_H
@@ -13,7 +13,7 @@
 #define PAL_BG_MEM            (&pal_mem[0])       // first 512 byte
 #define PAL_OBJ_MEM           (&pal_mem[256])     // last 512 byte
 #define PAL_BANK_SIZE         (PAL_SIZE / 16)
-#define PAL_BANK_BG_MEM(i)    (&PAL_BG_MEM[16 * (i)]) 
+#define PAL_BANK_BG_MEM(i)    (&PAL_BG_MEM[16 * (i)])
 #define PAL_BANK_OBJ_MEM(i)   (&PAL_OBJ_MEM[16 * (i)])
 
 inline void pal_reset_bg(){

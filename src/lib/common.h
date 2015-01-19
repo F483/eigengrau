@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef LIB_COMMON_H
 #define LIB_COMMON_H
@@ -82,9 +82,9 @@ typedef volatile Sint64     VSint64;
 
 typedef void (*CallbackFunc)(void* data);
 
-typedef struct { 
-  CallbackFunc func; 
-  void* data; 
+typedef struct {
+  CallbackFunc func;
+  void* data;
 } Callback;
 
 #define CALLBACK(func, data)  ((Callback){ (func), (data) })

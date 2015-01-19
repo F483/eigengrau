@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef LIB_FONT_H
 #define LIB_FONT_H
@@ -27,9 +27,9 @@ typedef struct {    // Background font using 30x20 grid.
 void font_bg4_init(const FontBG4* font); // init sys regs and map
 void font_bg4_cptiles(const FontBG4* font, const Tile4* tiles); // cp tiles vram
 void font_bg4_clear(const FontBG4* font); // remove all chars from map
-void font_bg4_print(const FontBG4* font, Uint16 palbank, 
+void font_bg4_print(const FontBG4* font, Uint16 palbank,
                     Vec pos, const char* str);
-void font_bg4_printf(const FontBG4* font, Uint16 palbank, 
+void font_bg4_printf(const FontBG4* font, Uint16 palbank,
                      Vec pos, const char* format, ...);
 
 void font_bg4_printu(const FontBG4* font, Uint16 palbank, Vec pos, Uint16 num);

@@ -19,7 +19,7 @@
 
 
 // --------------------------------------------------------------------
-// MACROS 
+// MACROS
 // --------------------------------------------------------------------
 
 #define DEF_SIZE(_name)		.size	_name, .-_name
@@ -59,7 +59,7 @@
 //\{
 
 //! Start an assembly function.
-/*!	
+/*!
 	\param _name	Name of function.
 	\param _section	Section to place function in (like .text)
 */
@@ -75,14 +75,14 @@ _name:
 #define END_FUNC(_name)		DEF_SIZE(_name)
 
 //! Begin an ARM function
-/*!	
+/*!
 	\param _name	Name of function.
 	\param _section	Section to place function in (like .text)
 */
 #define BEGIN_FUNC_ARM(_name, _section)		BEGIN_FUNC(_name, _section, ARM_FUNC)
 
 //! Begin a THUMB function.
-/*!	
+/*!
 	\param _name	Name of function.
 	\param _section	Section to place function in (like .text)
 */
@@ -118,13 +118,13 @@ _name:
 
 
 // --------------------------------------------------------------------
-// GLOBALS 
+// GLOBALS
 // --------------------------------------------------------------------
 // --------------------------------------------------------------------
-// PROTOTYPES 
+// PROTOTYPES
 // --------------------------------------------------------------------
 // --------------------------------------------------------------------
-// inlineS 
+// inlineS
 // --------------------------------------------------------------------
 
 #endif	// /TONC_ASMINC_H

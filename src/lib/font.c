@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #include <src/lib/all.h>
 #include <src/gba/all.h>
@@ -11,42 +11,42 @@
 #define _PRINTF_BUFFER_SIZE (_MAX_X_TILES * _MAX_Y_TILES + _MAX_Y_TILES)
 char* _printf_buffer[_PRINTF_BUFFER_SIZE];
 
-void font_init_sysregs(Uint16 font_reg_bg, Uint16 font_tilebank, 
-                       Uint16 font_mapbank, Uint16 font_prio, 
+void font_init_sysregs(Uint16 font_reg_bg, Uint16 font_tilebank,
+                       Uint16 font_mapbank, Uint16 font_prio,
                        Uint16 gfx_bg_bpp){
 
   // get bg registers
-  volatile Uint16* reg_bg = NULL; 
-  volatile Uint16* reg_bg_hpos = NULL; 
-  volatile Uint16* reg_bg_vpos = NULL; 
+  volatile Uint16* reg_bg = NULL;
+  volatile Uint16* reg_bg_hpos = NULL;
+  volatile Uint16* reg_bg_vpos = NULL;
   switch(font_reg_bg){
-    case 0: 
-      reg_bg    = &gfx_reg_bg0; 
-      reg_bg_hpos = &gfx_reg_bg0_hpos; 
-      reg_bg_vpos = &gfx_reg_bg0_vpos; 
+    case 0:
+      reg_bg    = &gfx_reg_bg0;
+      reg_bg_hpos = &gfx_reg_bg0_hpos;
+      reg_bg_vpos = &gfx_reg_bg0_vpos;
       break;
-    case 1: 
-      reg_bg    = &gfx_reg_bg1; 
-      reg_bg_hpos = &gfx_reg_bg1_hpos; 
-      reg_bg_vpos = &gfx_reg_bg1_vpos; 
+    case 1:
+      reg_bg    = &gfx_reg_bg1;
+      reg_bg_hpos = &gfx_reg_bg1_hpos;
+      reg_bg_vpos = &gfx_reg_bg1_vpos;
       break;
-    case 2: 
-      reg_bg    = &gfx_reg_bg2; 
-      reg_bg_hpos = &gfx_reg_bg2_hpos; 
-      reg_bg_vpos = &gfx_reg_bg2_vpos; 
+    case 2:
+      reg_bg    = &gfx_reg_bg2;
+      reg_bg_hpos = &gfx_reg_bg2_hpos;
+      reg_bg_vpos = &gfx_reg_bg2_vpos;
       break;
-    case 3: 
-      reg_bg    = &gfx_reg_bg3; 
-      reg_bg_hpos = &gfx_reg_bg3_hpos; 
-      reg_bg_vpos = &gfx_reg_bg3_vpos; 
+    case 3:
+      reg_bg    = &gfx_reg_bg3;
+      reg_bg_hpos = &gfx_reg_bg3_hpos;
+      reg_bg_vpos = &gfx_reg_bg3_vpos;
       break;
-    default: 
+    default:
       // should never happen
       return;
   }
 
   // setup registers
-  *reg_bg = GFX_BG_TILE_MEM(font_tilebank) | GFX_BG_MAP_MEM(font_mapbank) | 
+  *reg_bg = GFX_BG_TILE_MEM(font_tilebank) | GFX_BG_MAP_MEM(font_mapbank) |
             GFX_BG_REG_32x32 | gfx_bg_bpp | GFX_BG_PRIO(font_prio);
   *reg_bg_hpos = 0;
   *reg_bg_vpos = 0;
@@ -54,13 +54,13 @@ void font_init_sysregs(Uint16 font_reg_bg, Uint16 font_tilebank,
 }
 
 void font_bg8_init(const FontBG8* font){
-  font_init_sysregs(font->reg_bg, font->tilebank, font->mapbank, font->prio, 
+  font_init_sysregs(font->reg_bg, font->tilebank, font->mapbank, font->prio,
                     GFX_BG_8BPP);
   font_bg8_clear(font);
 }
 
 void font_bg4_init(const FontBG4* font){
-  font_init_sysregs(font->reg_bg, font->tilebank, font->mapbank, font->prio, 
+  font_init_sysregs(font->reg_bg, font->tilebank, font->mapbank, font->prio,
                     GFX_BG_4BPP);
   font_bg4_clear(font);
 }
@@ -81,9 +81,9 @@ void font_bg_clear(Uint16 mapbank, Uint16 offset){
   // only clear first 20 lines that can be seen
   for(int i = 0; i < (20 * 16); i += 16){
     // unroll to clear entire line at once
-    map[i +  0] = eraser; map[i +  1] = eraser; map[i +  2] = eraser; 
-    map[i +  3] = eraser; map[i +  4] = eraser; map[i +  5] = eraser; 
-    map[i +  6] = eraser; map[i +  7] = eraser; map[i +  8] = eraser; 
+    map[i +  0] = eraser; map[i +  1] = eraser; map[i +  2] = eraser;
+    map[i +  3] = eraser; map[i +  4] = eraser; map[i +  5] = eraser;
+    map[i +  6] = eraser; map[i +  7] = eraser; map[i +  8] = eraser;
     map[i +  9] = eraser; map[i + 10] = eraser; map[i + 11] = eraser;
     map[i + 12] = eraser; map[i + 13] = eraser; map[i + 14] = eraser;
     // skip last one since it can never be seen
@@ -106,7 +106,7 @@ void font_bg8_printf(const FontBG8* font, Vec pos, const char* format, ...){
   va_end(args);
 }
 
-void font_bg4_printf(const FontBG4* font, Uint16 palbank, 
+void font_bg4_printf(const FontBG4* font, Uint16 palbank,
           Vec pos, const char* format, ...){
   va_list args;
   va_start(args, format);
@@ -121,14 +121,14 @@ void font_bg8_printu(const FontBG8* font, Vec pos, Uint16 num){
   font_bg8_print(font, pos, buffer);
 }
 
-void font_bg4_printu(const FontBG4* font, Uint16 palbank, 
+void font_bg4_printu(const FontBG4* font, Uint16 palbank,
            Vec pos, Uint16 num){
   char buffer[6];
   uitoa(buffer, num);
   font_bg4_print(font, palbank, pos, buffer);
 }
 
-void font_bg_print(Uint16 font_offset, Uint16 font_mapbank, Uint16 palbank, 
+void font_bg_print(Uint16 font_offset, Uint16 font_mapbank, Uint16 palbank,
            Vec pos, const char* str){
   // TODO make this slow bitch faster
   Sint32 pos_x = vec_get_x_int(pos);
@@ -161,7 +161,7 @@ void font_bg8_print(const FontBG8* font, Vec pos, const char* str){
   font_bg_print(font->offset, font->mapbank, 0, pos, str);
 }
 
-void font_bg4_print(const FontBG4* font, Uint16 palbank, 
+void font_bg4_print(const FontBG4* font, Uint16 palbank,
           Vec pos, const char* str){
   font_bg_print(font->offset, font->mapbank, palbank, pos, str);
 }

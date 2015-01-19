@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
 
 #ifndef GBA_MAP_H
 #define GBA_MAP_H
@@ -43,11 +43,11 @@ inline Uint16* map_bank_mem(Uint16 i){
 #define TME_PALBANK_SHIFT 12
 #define TME_PALBANK(n)    ((n) << TME_PALBANK_SHIFT)
 
-inline Uint16 tme_build(Uint16 tileid, Uint16 hflip, 
+inline Uint16 tme_build(Uint16 tileid, Uint16 hflip,
                         Uint16 vflip, Uint16 palbank){
-  return ((tileid bitand TME_TILE_ID_MASK) bitor 
-          (hflip bitand TME_HFLIP) bitor 
-          ((palbank << TME_PALBANK_SHIFT) bitand TME_PALBANK_MASK) bitor 
+  return ((tileid bitand TME_TILE_ID_MASK) bitor
+          (hflip bitand TME_HFLIP) bitor
+          ((palbank << TME_PALBANK_SHIFT) bitand TME_PALBANK_MASK) bitor
           (vflip bitand TME_VFLIP));
 }
 
