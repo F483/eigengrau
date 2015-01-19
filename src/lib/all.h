@@ -12,5 +12,6 @@
 #include <src/lib/fix.h>
 #include <src/lib/synth.h>
 #include <src/lib/collision.h>
+#include <src/lib/sequencer/all.h>
 
 #endif

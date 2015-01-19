@@ -144,26 +144,31 @@ inline void uitoa(char buffer[6], Uint16 num){
 }
 
 
-//////////
-// MISC //
-//////////
+////////////////////
+// WRAPPING INDEX //
+////////////////////
 
-#define BUILD_HALT(condition)   ((void)sizeof(char[1 - 2*!!(condition)]))
-#define SUPPRESS_UNUSED(var)    (var = var)
-
-inline Uint32 index_wrap(Uint32 entries, Uint32 current, Sint32 move){
+inline Uint32 wrap_index(Uint32 entries, Uint32 current, Sint32 move){
   assert(current < entries);
   assert((entries + move) < (entries + entries));
   assert(((Sint32)entries + move) >= 0);
   return (current + entries + move) % entries;
 }
 
-inline Uint32 menu_index_next(Uint32 entries, Uint32 current){
-  return index_wrap(entries, current, 1);
+inline Uint32 wrap_index_next(Uint32 entries, Uint32 current){
+  return wrap_index(entries, current, 1);
 }
 
-inline Uint32 menu_index_prev(Uint32 entries, Uint32 current){
-  return index_wrap(entries, current, -1);
+inline Uint32 wrap_index_prev(Uint32 entries, Uint32 current){
+  return wrap_index(entries, current, -1);
 }
+
+
+//////////
+// MISC //
+//////////
+
+#define BUILD_HALT(condition)   ((void)sizeof(char[1 - 2*!!(condition)]))
+#define SUPPRESS_UNUSED(var)    (var = var)
 
 #endif
