@@ -3,7 +3,7 @@
 
 
 MODE = debug
-EMULATOR = vba
+EMULATOR = gvba
 GAME = eigengrau
 
 

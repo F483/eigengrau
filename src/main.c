@@ -6,8 +6,8 @@
 #include <src/scenes/all.h>
 
 int main(){
-  sav_init(0xFABE0002); // init with nonce for sperotactics
-  scene_set(&company);
+  sav_init(0xFABE0003); // init with nonce for eigengrau
+  scene_set(&scenes_company);
   scene_run();
   return 0;
 }

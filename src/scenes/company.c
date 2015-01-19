@@ -39,9 +39,9 @@ static void load(){
 
 static void tick(){
   if (!company_ttl or input_key_down(NEXT_KEYS)){
-    scene_set(&sequencer);
+    scene_set(&scenes_sequencer);
   } 
   company_ttl--;
 }
 
-const Scene company = { true, &load, &tick, NULL };
+const Scene scenes_company = { true, &load, &tick, NULL };

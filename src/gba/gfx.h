@@ -214,7 +214,7 @@ inline void gfx_vsync_busywait(){
 }
 
 inline void gfx_reset(){
-  // TODO zero out vram with memcpy
+  memset(gfx_mem_vram, 0, GFX_MEM_VRAM_SIZE);
   gfx_reg_display   = 0;
   gfx_reg_bg0       = 0;
   gfx_reg_bg0_hpos  = 0;

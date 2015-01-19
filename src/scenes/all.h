@@ -6,8 +6,8 @@
 
 #include <src/lib/all.h>
 
-extern const Scene company;
-extern const Scene sequencer;
+extern const Scene scenes_company;
+extern const Scene scenes_sequencer;
 
 #endif
 

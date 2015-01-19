@@ -1,5 +1,5 @@
-// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com> 
-// License: MIT (see LICENSE.TXT file)  
+// Copyright (c) 2014 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE.TXT file)
 
 #ifndef GBA_SND_H
 #define GBA_SND_H
@@ -33,14 +33,14 @@
 #define snd_reg_fm          (*(VUint16*)0x04000080) // Frequency modulation
 #define snd_reg_ds          (*(VUint16*)0x04000082) // Direct Sound
 #define snd_reg_status      (*(VUint16*)0x04000084) // Sound setup
-#define snd_reg_bias        (*(VUint16*)0x04000088) // Sound bias      
+#define snd_reg_bias        (*(VUint16*)0x04000088) // Sound bias
 
 // Sound buffers
 #define snd_reg_wave_ram    ((VUint32*)0x04000090) // Channel 3 wave buffer
-#define snd_reg_wave_ram0   (*(VUint32*)0x04000090)            
-#define snd_reg_wave_ram1   (*(VUint32*)0x04000094)             
-#define snd_reg_wave_ram2   (*(VUint32*)0x04000098)            
-#define snd_reg_wave_ram3   (*(VUint32*)0x0400009C)           
+#define snd_reg_wave_ram0   (*(VUint32*)0x04000090)
+#define snd_reg_wave_ram1   (*(VUint32*)0x04000094)
+#define snd_reg_wave_ram2   (*(VUint32*)0x04000098)
+#define snd_reg_wave_ram3   (*(VUint32*)0x0400009C)
 
 #define snd_reg_fifo_a      (*(VUint32*)0x040000A0) // Direct Sound A FIFO
 #define snd_reg_fifo_b      (*(VUint32*)0x040000A4) // Direct Sound B FIFO
@@ -74,7 +74,7 @@
 #define SND_FM_C2_R         0x2000  // Channel 2 R
 #define SND_FM_C3_R         0x4000  // Channel 3 R
 #define SND_FM_C4_R         0x8000  // Channel 4 R
-                            
+
 #define SND_FM_LVOL_MASK    0x0007
 #define SND_FM_LVOL_SHIFT   0
 #define SND_FM_LVOL(n)      ((n) << SND_FM_LVOL_SHIFT)
@@ -89,7 +89,7 @@
 #define SND_FM_C3           0x04
 #define SND_FM_C4           0x08
 
-inline Uint16 snd_fm_build(Uint16 lmode, Uint16 rmode, 
+inline Uint16 snd_fm_build(Uint16 lmode, Uint16 rmode,
                            Uint16 lvol, Uint16 rvol){
   return ((rmode) << 12) | ((lmode) << 8) | (((rvol)&7) << 4) | ((lvol)&7);
 }
@@ -166,8 +166,8 @@ inline Uint16 snd_fm_buildlr(Uint16 mode, Uint16 vol){
  * @param time  3bits 0-7
  */
 inline Uint16 snd_sweep_build(Uint16 shift, Uint16 dir, Uint16 time){
-  return (shift bitand SND_SWEEP_SHIFT_MASK) bitor 
-         (dir bitand SND_SWEEP_DIR_DEC) bitor 
+  return (shift bitand SND_SWEEP_SHIFT_MASK) bitor
+         (dir bitand SND_SWEEP_DIR_DEC) bitor
          (SND_SWEEP_TIME(time) bitand SND_SWEEP_TIME_MASK);
 }
 
@@ -213,10 +213,10 @@ inline Uint16 snd_sweep_build(Uint16 shift, Uint16 dir, Uint16 time){
  * @param env_dir  1bit SND_SQR_ENV_DIR_DEC | SND_SQR_ENV_DIR_INC
  * @param env_ivol 4bit 0-15
  */
-inline Uint16 snd_sqr_build(Uint16 len, Uint16 duty, 
+inline Uint16 snd_sqr_build(Uint16 len, Uint16 duty,
               Uint16 env_step, Uint16 env_dir, Uint16 env_ivol){
   return (SND_SQR_ENV_IVOL(env_ivol) bitand SND_SQR_ENV_IVOL_MASK)   bitor
-         (env_dir bitand SND_SQR_ENV_DIR_INC)                        bitor 
+         (env_dir bitand SND_SQR_ENV_DIR_INC)                        bitor
          (SND_SQR_ENV_STEPS(env_step) bitand SND_SQR_ENV_STEPS_MASK) bitor
          (SND_SQR_DUTY(duty) bitand SND_SQR_DUTY_MASK)               bitor
          (len bitand SND_SQR_LEN_MASK);
@@ -246,8 +246,8 @@ inline Uint16 snd_sqr_build(Uint16 len, Uint16 duty,
  * @param reset SND_FREQ_RESET | 0
  */
 inline Uint16 snd_freq_build(Uint16 rate, Uint16 timed, Uint16 reset){
-  return (rate bitand SND_FREQ_RATE_MASK) bitor 
-         (timed bitand SND_FREQ_TIMED) bitor 
+  return (rate bitand SND_FREQ_RATE_MASK) bitor
+         (timed bitand SND_FREQ_TIMED) bitor
          (reset bitand SND_FREQ_RESET);
 }
 
