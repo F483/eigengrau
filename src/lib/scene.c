@@ -12,7 +12,7 @@ Uint32 scene_vcount_draw = 0;
 Uint32 scene_vcount_tick = 0;
 
 void scene_set(const Scene* scene){
-  scene_next = (Scene*)scene; // load in main loop to use full vblank time
+  scene_next = (Scene*)scene; // init in main loop to use full vblank time
 }
 
 void scene_change(){
@@ -29,9 +29,9 @@ void scene_change(){
     obj_reset();
   }
 
-  // load scene
-  if(scene_current and scene_current->load){
-    scene_current->load();
+  // init scene
+  if(scene_current and scene_current->init){
+    scene_current->init();
   }
 }
 

@@ -25,7 +25,7 @@
 
 Uint32 company_ttl;
 
-static void load(){
+static void init(){
   company_ttl = DISPLAY_DURATION;
   gfx_reg_display = GFX_DISPLAY_MODE0 | GFX_DISPLAY_BG0;
   gfx_reg_bg0 = GFX_BG_TILE_MEM(BG_TILEBANK) | GFX_BG_MAP_MEM(BG_MAPBANK) |
@@ -44,4 +44,4 @@ static void tick(){
   company_ttl--;
 }
 
-const Scene scenes_company = { true, &load, &tick, NULL };
+const Scene scenes_company = { true, &init, &tick, NULL };

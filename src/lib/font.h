@@ -7,6 +7,7 @@
 #include <src/lib/common.h>
 #include <src/lib/vec.h>
 #include <src/gba/tile.h>
+#include <src/gba/map.h>
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -56,5 +57,42 @@ void font_bg8_clear(const FontBG8* font); // remove all chars from map
 void font_bg8_print(const FontBG8* font, Vec pos, const char* str);
 void font_bg8_printf(const FontBG8* font, Vec pos, const char* format, ...);
 void font_bg8_printu(const FontBG8* font, Vec pos, Uint16 num);
+
+////////////////////////////////////////////////////////////////////////////////
+//                                FONT FAST                                   //
+////////////////////////////////////////////////////////////////////////////////
+
+#define FONT_NUMBERS_OFFSET 15
+
+inline void font_fast_print_i3(Uint16 x, Uint16 y, Uint16 num, 
+                               Uint16 font_tiles, Uint16 palbank, 
+                               Uint16* map_mem){
+  // iter 0
+  Uint16 tileid = font_tiles + FONT_NUMBERS_OFFSET + (num % 10);
+  INDEX_2D(x + 2, y, 32, map_mem) = tme_build(tileid, 0, 0, palbank);
+
+  // iter 1
+  num /= 10;
+  tileid = font_tiles + FONT_NUMBERS_OFFSET + (num % 10);
+  INDEX_2D(x + 1, y, 32, map_mem) = tme_build(tileid, 0, 0, palbank);
+
+  // iter 2
+  num /= 10;
+  tileid = font_tiles + FONT_NUMBERS_OFFSET + (num % 10);
+  INDEX_2D(x, y, 32, map_mem) = tme_build(tileid, 0, 0, palbank);
+}
+
+inline void font_fast_print_i2(Uint16 x, Uint16 y, Uint16 num, 
+                               Uint16 font_tiles, Uint16 palbank, 
+                               Uint16* map_mem){
+  // iter 0
+  Uint16 tileid = font_tiles + FONT_NUMBERS_OFFSET + (num % 10);
+  INDEX_2D(x + 1, y, 32, map_mem) = tme_build(tileid, 0, 0, palbank);
+
+  // iter 1
+  num /= 10;
+  tileid = font_tiles + FONT_NUMBERS_OFFSET + (num % 10);
+  INDEX_2D(x, y, 32, map_mem) = tme_build(tileid, 0, 0, palbank);
+}
 
 #endif

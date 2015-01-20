@@ -10,21 +10,21 @@
 // SCENE //
 ///////////
 
-typedef void  (*SceneLoad)();
+typedef void  (*SceneInit)();
 typedef void  (*SceneTick)();
 typedef void  (*SceneDraw)();
 
 typedef struct {
-  Bool        reset;  // reset snd and gfx to defaults before loading
-  SceneLoad   load;   // load scene data (called before transition draw)
+  Bool        reset;  // reset snd and gfx to defaults before initing
+  SceneInit   init;   // init scene data (called before transition draw)
   SceneTick   tick;   // update scene state
   SceneDraw   draw;   // draw scene state
 } Scene;
 
-void scene_set(const Scene* scene); // will be loaded during next vblank
+void scene_set(const Scene* scene); // will be inited during next vblank
 void scene_run(); // main game loop
 
-extern Uint32 scene_frame; // incremented every frame and reset before loading
+extern Uint32 scene_frame; // incremented every frame and reset before initing
 extern Uint32 scene_total_frames; // incremented every frame
 
 extern Uint32 scene_vcount_draw; // vcount at end of draw

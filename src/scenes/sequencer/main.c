@@ -7,6 +7,7 @@
 #include <src/scenes/all.h>
 #include <src/scenes/sequencer/main.h>
 #include <src/scenes/sequencer/track.h>
+#include <src/scenes/sequencer/modules/all.h>
 
 // memory setup
 #define BG_TILEBANK       0
@@ -20,7 +21,7 @@
 #define BG_PALETTE        (Uint16*)&sequencer_bg_Pal
 
 
-static void load_gfx(){
+static void init_gfx(){
 
   // setup display
   gfx_reg_display = GFX_DISPLAY_MODE0 | GFX_DISPLAY_BG0 | GFX_DISPLAY_BG1;
@@ -39,24 +40,27 @@ static void load_gfx(){
   pal_set_bg(BG_PALETTE);
 }
 
-static void load_hud(){
-  scenes_sequencer_track_load();
+static void init_hud(){
+  scenes_sequencer_track_init();
 }
 
-static void load(){
-  load_gfx();
-  load_hud();
+static void init(){
+  init_gfx();
+  init_hud();
   sequencer_init();
+  module_bpm_init();
 }
 
 static void tick(){
   sequencer_tick();
   scenes_sequencer_track_tick();
+  module_bpm_tick(true);
 }
 
 static void draw(){
   scenes_sequencer_track_draw();
+  module_bpm_draw(true);
 }
 
-const Scene scenes_sequencer = { true, &load, &tick, &draw };
+const Scene scenes_sequencer = { true, &init, &tick, &draw };
 

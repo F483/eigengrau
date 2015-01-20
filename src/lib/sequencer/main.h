@@ -6,7 +6,6 @@
 
 #include <src/lib/sequencer/sequence.h>
 
-
 Uint32 sequencer_get_bpm();
 void   sequencer_set_bpm(Uint32 value);
 void   sequencer_init();

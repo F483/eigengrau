@@ -46,10 +46,7 @@ inline Uint16* map_bank_mem(Uint16 i){
 
 inline Uint16 tme_build(Uint16 tileid, Uint16 hflip,
                         Uint16 vflip, Uint16 palbank){
-  return ((tileid bitand TME_TILE_ID_MASK) bitor
-          (hflip bitand TME_HFLIP) bitor
-          ((palbank << TME_PALBANK_SHIFT) bitand TME_PALBANK_MASK) bitor
-          (vflip bitand TME_VFLIP));
+  return tileid bitor hflip bitor vflip bitor (palbank << TME_PALBANK_SHIFT);
 }
 
 #endif

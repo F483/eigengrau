@@ -5,9 +5,8 @@
 #define SCENES_SEQUENCER_TRACK_H
 
 #include <src/lib/all.h>
-#include <src/scenes/sequencer/track.h>
 
-void scenes_sequencer_track_load();
+void scenes_sequencer_track_init();
 void scenes_sequencer_track_tick();
 void scenes_sequencer_track_draw();
 

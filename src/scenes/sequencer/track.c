@@ -21,7 +21,7 @@ static inline void set_track(SequencerTrack track, Uint16 tile){
   INDEX_2D(POS_X, POS_Y + track, 32, SCENES_SEQUENCER_HUD_MAPMEM) = tile;
 }
 
-void scenes_sequencer_track_load(){
+void scenes_sequencer_track_init(){
   set_track(DEFAULT, TILE_ON);
 }
 
