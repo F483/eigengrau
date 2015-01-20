@@ -46,9 +46,11 @@ static void load_hud(){
 static void load(){
   load_gfx();
   load_hud();
+  sequencer_init();
 }
 
 static void tick(){
+  sequencer_tick();
   scenes_sequencer_track_tick();
 }
 

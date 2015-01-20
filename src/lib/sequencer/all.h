@@ -5,5 +5,7 @@
 #define LIB_SEQUENCER_ALL_H
 
 #include <src/lib/sequencer/track.h>
+#include <src/lib/sequencer/sequence.h>
+#include <src/lib/sequencer/main.h>
 
 #endif

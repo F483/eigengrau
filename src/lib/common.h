@@ -29,7 +29,7 @@
 #define RGB15_R(rgb)                (rgb bitand 31)
 #define RGB15_G(rgb)                ((rgb >> 5) bitand 31)
 #define RGB15_B(rgb)                ((rgb >> 10) bitand 31)
-#define INDEX_2D(x,y,w,d)           (d[(y) * (w) + (x)])
+#define INDEX_2D(x,y,w,d)           ((d)[(y) * (w) + (x)])
 
 // bitmask utils
 #define BIT_NUM(n)                  (1 << n)

@@ -18,9 +18,10 @@
 
 #define MAP_BANK_COUNT    32
 #define MAP_BANK_SIZE     0x0800 // bytes (2kb)
+#define MAP_BANK_MEM(i)   (&gfx_mem_vram[((MAP_BANK_SIZE/2)*(i))])
 
 inline Uint16* map_bank_mem(Uint16 i){
-  return (&gfx_mem_vram[((MAP_BANK_SIZE/2)*(i))]);
+  return MAP_BANK_MEM(i);
 }
 
 

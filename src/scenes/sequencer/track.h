@@ -6,7 +6,6 @@
 
 #include <src/lib/all.h>
 #include <src/scenes/sequencer/track.h>
-#include <src/lib/sequencer/track.h>
 
 void scenes_sequencer_track_load();
 void scenes_sequencer_track_tick();

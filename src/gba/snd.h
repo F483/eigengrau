@@ -62,8 +62,20 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 //                          FREQUENCY MODULATION CONTROL                      //
-// TODO document bits                                                         //
-// This sets volume and channel mapping to L and R speakers.                  //
+//                                                                            //
+// BITS  NAME           DESCRIPTION                                           //
+// 0-1   SND_FM_LVOL    Left volume                                           //
+// 3                    Unused                                                //
+// 4-6   SND_FM_RVOL    Right volume                                          //
+// 7                    Unused                                                //
+// 8     SND_FM_C1_L    Enable channel 1 on left speaker                      //
+// 9     SND_FM_C2_L    Enable channel 2 on left speaker                      //
+// 10    SND_FM_C3_L    Enable channel 3 on left speaker                      //
+// 11    SND_FM_C4_L    Enable channel 4 on left speaker                      //
+// 12    SND_FM_C1_R    Enable channel 1 on right speaker                     //
+// 13    SND_FM_C2_R    Enable channel 2 on right speaker                     //
+// 14    SND_FM_C3_R    Enable channel 3 on right speaker                     //
+// 15    SND_FM_C4_R    Enable channel 4 on right speaker                     //
 ////////////////////////////////////////////////////////////////////////////////
 
 #define SND_FM_C1_L         0x0100  // Channel 1 L
@@ -94,7 +106,7 @@ inline Uint16 snd_fm_build(Uint16 lmode, Uint16 rmode,
   return ((rmode) << 12) | ((lmode) << 8) | (((rvol)&7) << 4) | ((lvol)&7);
 }
 
-inline Uint16 snd_fm_buildlr(Uint16 mode, Uint16 vol){
+inline Uint16 snd_fm_build_lr(Uint16 mode, Uint16 vol){
   return snd_fm_build(mode, mode, vol, vol);
 }
 
@@ -179,7 +191,7 @@ inline Uint16 snd_sweep_build(Uint16 shift, Uint16 dir, Uint16 time){
 // 0-5   SND_SQR_LEN*           Sound Length                                  //
 // 6-7   SND_SQR_DUTY*          Waveform type                                 //
 // 8-10  SND_SQR_ENV_STEPS*     Time between envelope changes.                //
-// 11  SND_SQR_ENV_DIR_*        Envelope Attenuate/Amplify                    //
+// 11    SND_SQR_ENV_DIR_*      Envelope Attenuate/Amplify                    //
 // 12-15 SND_SQR_ENV_IVOL*      Envelope Initial Value                        //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -225,7 +237,7 @@ inline Uint16 snd_sqr_build(Uint16 len, Uint16 duty,
 
 ////////////////////////////////////////////////////////////////////////////////
 //                            Frequency (Channel 1, 2, 3)                     //
-//                                      *                                     //
+//                                                                            //
 // BITS  NAME                 DESCRIPTION                                     //
 // 0-10  SND_FREQ_RATE        Frequency                                       //
 // 11-13                      Unused                                          //
