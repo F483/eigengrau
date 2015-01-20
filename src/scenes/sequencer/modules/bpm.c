@@ -22,6 +22,7 @@ void module_bpm_draw(Bool selected){
   SUPPRESS_UNUSED(selected); // TODO
   Uint16* mem = SCENES_SEQUENCER_HUD_MAPMEM;
   Uint16  bpm = sequencer_get_bpm();
-  font_fast_print_i3(19, 1, bpm, FONT_TILES, 0, mem);
+  font_print_i3(FONT_TILES, 0, mem, 19, 1, bpm);
+  font_print(FONT_TILES, 0, mem, 19,2, "TAP");
 }
 
