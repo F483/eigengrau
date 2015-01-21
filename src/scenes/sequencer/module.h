@@ -7,8 +7,8 @@
 #include <src/lib/all.h>
 
 typedef void  (*ModuleInit)();
-typedef void  (*ModuleTick)(Bool selected);
-typedef void  (*ModuleDraw)(Bool selected);
+typedef void  (*ModuleTick)(Bool active);
+typedef void  (*ModuleDraw)(Bool active);
 
 typedef struct {
   ModuleInit   init;

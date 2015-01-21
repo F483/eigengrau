@@ -7,8 +7,8 @@
 #include <src/scenes/sequencer/module.h>
 
 void module_bpm_init();
-void module_bpm_tick(Bool selected);
-void module_bpm_draw(Bool selected);
+void module_bpm_tick(Bool active);
+void module_bpm_draw(Bool active);
 
 #endif
 
