@@ -22,12 +22,20 @@ Sequence queued_noise;
 Sequence queued_smpl;
 Sequence queued_smpl;
 
-Uint32 sequencer_get_bpm(){
+Uint32 sequencer_bpm_get(){
   return bpm;
 }
 
-void sequencer_set_bpm(Uint32 value){
+void sequencer_bpm_set(Uint32 value){
   bpm = value;
+}
+
+void sequencer_bpm_inc(){
+  bpm++;
+}
+
+void sequencer_bpm_dec(){
+  bpm--;
 }
 
 void sequencer_init(){

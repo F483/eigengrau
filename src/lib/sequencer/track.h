@@ -4,7 +4,7 @@
 #ifndef LIB_SEQUENCER_TRACK_H
 #define LIB_SEQUENCER_TRACK_H
 
-typedef enum SequencerTrack {
+typedef enum {
   SQR1 = 0,
   SQR2 = 1,
   WAVE = 2,
