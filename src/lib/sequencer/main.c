@@ -31,11 +31,11 @@ void sequencer_bpm_set(Uint32 value){
 }
 
 void sequencer_bpm_inc(){
-  bpm++;
+  sequencer_bpm_set(bpm + 1);
 }
 
 void sequencer_bpm_dec(){
-  bpm--;
+  sequencer_bpm_set(bpm - 1);
 }
 
 void sequencer_init(){
