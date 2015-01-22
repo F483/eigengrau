@@ -15,9 +15,11 @@
 #define VAL_X         2
 #define VAL_Y         20
 
-static void draw(Bool active, SequencerTrack track){
-  Uint16 val = track; // TODO get sqr1 value
+#define KEYS_INC      (INPUT_KEY_A | INPUT_KEY_RIGHT)
+#define KEYS_DEC      (INPUT_KEY_B | INPUT_KEY_LEFT)
 
+static void draw(Bool active, SequencerTrack track){
+  Uint16 val = sequencer_cfg_normal_fm_ctrl_duty_get(track);
   Uint16 palbank = active ? 1 : 0;
   Uint16* mem = SCENES_SEQUENCER_HUD_MAPMEM;
   tme_cp_tile(LABEL_X + 0, LABEL_Y, BG_MAP, X + 0, Y, mem, 0, 0, palbank);
@@ -30,8 +32,13 @@ static void tick(Bool active, SequencerTrack track){
   if(!active){
     return;
   }
-  SUPPRESS_UNUSED(track);
-  // TODO implement
+  if(input_key_hit(KEYS_INC)){
+    Uint16 value = sequencer_cfg_normal_fm_ctrl_duty_get(track);
+    sequencer_cfg_normal_fm_ctrl_duty_set(track, wrap_index_next(3, value));
+  } else if (input_key_hit(KEYS_DEC)){
+    Uint16 value = sequencer_cfg_normal_fm_ctrl_duty_get(track);
+    sequencer_cfg_normal_fm_ctrl_duty_set(track, wrap_index_prev(3, value));
+  }
 }
 
 void module_ctrl_duty_sqr1_tick(Bool active){

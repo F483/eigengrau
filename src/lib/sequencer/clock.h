@@ -7,7 +7,6 @@
 #include <src/lib/sequencer/sequence.h>
 
 void   sequencer_tick();
-Uint16 sequencer_this_step();
 
 Uint32 sequencer_bpm_get();
 void   sequencer_bpm_set(Uint32 value);

@@ -15,4 +15,3 @@ A synth and step sequcencer for the GBA.
     # install devkitPro to building gba games
     sudo bin/install_devkitpro.sh
 
-

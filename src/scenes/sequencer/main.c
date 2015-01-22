@@ -55,16 +55,16 @@ static void tick(){
   scenes_sequencer_track_tick();
 
   // XXX
-  module_bpm_tick(true);
-  module_ctrl_duty_sqr2_tick(false);
+  module_bpm_tick(false);
+  module_ctrl_duty_sqr2_tick(true);
 }
 
 static void draw(){
   scenes_sequencer_track_draw();
 
   // XXX
-  module_bpm_draw(true);
-  module_ctrl_duty_sqr2_draw(false);
+  module_bpm_draw(false);
+  module_ctrl_duty_sqr2_draw(true);
 }
 
 const Scene scenes_sequencer = { true, &init, &tick, &draw };

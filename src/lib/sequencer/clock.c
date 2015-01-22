@@ -27,24 +27,27 @@ void sequencer_bpm_dec(){
 
 void play_step(Uint16 index){
 
+
+  // XXX
   synth_play_channel2(index % 4, SYNTH_OCTAVE_C0);
 
+  snd_reg_c2_ctrl = sequence_tracks_active[SQR2].normal.fm_ctrl;
 
   next_step_time = ((steps_played + 1) * 3600) / (bpm * 4);
   steps_played++;
 }
 
-Uint16 sequencer_this_step(){
+Uint16 sequencer_this_step_index(){
   return steps_played % 64;
 }
 
-Uint16 sequencer_next_step(){
+Uint16 sequencer_next_step_index(){
   return (steps_played + 1) % 64;
 }
 
 void sequencer_tick(){
   if(next_step_time <= play_time){
-    play_step(sequencer_next_step());
+    play_step(sequencer_next_step_index());
   }
   play_time++;
 }

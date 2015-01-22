@@ -202,6 +202,7 @@ inline Uint16 snd_sweep_build(Uint16 shift, Uint16 dir, Uint16 time){
 #define SND_SQR_DUTY_MASK       0x00C0
 #define SND_SQR_DUTY_SHIFT      6
 #define SND_SQR_DUTY(n)         ((n) << SND_SQR_DUTY_SHIFT)
+#define SND_SQR_DUTY_READ(n)    ((n & SND_SQR_DUTY_MASK) >> SND_SQR_DUTY_SHIFT)
 #define SND_SQR_DUTY1_8         0 // 12.5% duty cycle (#-------)
 #define SND_SQR_DUTY1_4         1 // 25.0% duty cycle (##------)
 #define SND_SQR_DUTY1_2         2 // 50.0% duty cycle (####----)
