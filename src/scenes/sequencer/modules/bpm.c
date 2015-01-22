@@ -16,10 +16,6 @@
 #define KEYS_INC      (INPUT_KEY_A | INPUT_KEY_RIGHT)
 #define KEYS_DEC      (INPUT_KEY_B | INPUT_KEY_LEFT)
 
-void module_bpm_init(){
-  //
-}
-
 void module_bpm_tick(Bool active){
   if(!active){
     return;

@@ -49,4 +49,13 @@ inline Uint16 tme_build(Uint16 tileid, Uint16 hflip,
   return tileid bitor hflip bitor vflip bitor (palbank << TME_PALBANK_SHIFT);
 }
 
+inline void tme_cp_tile(Uint16 src_x, Uint16 src_y, const Uint16* src_mem, 
+                        Uint16 dest_x, Uint16 dest_y, Uint16* dest_mem, 
+                        Uint16 hflip, Uint16 vflip, Uint16 palbank){
+
+  Uint16 tileid = INDEX_2D(src_x, src_y, 32, src_mem) bitand TME_TILE_ID_MASK;
+  Uint16 tme = tme_build(tileid, hflip, vflip, palbank);
+  INDEX_2D(dest_x, dest_y, 32, dest_mem) = tme;
+}
+
 #endif

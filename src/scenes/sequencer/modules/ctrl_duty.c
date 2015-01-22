@@ -1,0 +1,60 @@
+// Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
+// License: MIT (see LICENSE file)
+
+#include <gfx/sequencer_bg.h>
+#include <src/gba/all.h>
+#include <src/lib/all.h>
+#include <src/scenes/sequencer/main.h>
+#include <src/scenes/sequencer/modules/all.h>
+
+#define BG_MAP        (const Uint16*)&sequencer_bg_Map
+#define X             1
+#define Y             5
+#define LABEL_X       0
+#define LABEL_Y       22
+#define VAL_X         2
+#define VAL_Y         20
+
+static void draw(Bool active, SequencerTrack track){
+  Uint16 val = track; // TODO get sqr1 value
+
+  Uint16 palbank = active ? 1 : 0;
+  Uint16* mem = SCENES_SEQUENCER_HUD_MAPMEM;
+  tme_cp_tile(LABEL_X + 0, LABEL_Y, BG_MAP, X + 0, Y, mem, 0, 0, palbank);
+  tme_cp_tile(LABEL_X + 1, LABEL_Y, BG_MAP, X + 1, Y, mem, 0, 0, palbank);
+  tme_cp_tile(VAL_X + 0 + val * 2, VAL_Y, BG_MAP, X + 2, Y, mem, 0, 0, palbank);
+  tme_cp_tile(VAL_X + 1 + val * 2, VAL_Y, BG_MAP, X + 3, Y, mem, 0, 0, palbank);
+}
+
+static void tick(Bool active, SequencerTrack track){
+  if(!active){
+    return;
+  }
+  SUPPRESS_UNUSED(track);
+  // TODO implement
+}
+
+void module_ctrl_duty_sqr1_tick(Bool active){
+  tick(active, SQR1);
+}
+
+void module_ctrl_duty_sqr1_draw(Bool active){
+  draw(active, SQR1);
+}
+
+void module_ctrl_duty_sqr2_tick(Bool active){
+  tick(active, SQR2);
+}
+
+void module_ctrl_duty_sqr2_draw(Bool active){
+  draw(active, SQR2);
+}
+
+void module_ctrl_duty_noise_tick(Bool active){
+  tick(active, NOISE);
+}
+
+void module_ctrl_duty_noise_draw(Bool active){
+  draw(active, NOISE);
+}
+

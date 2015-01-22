@@ -48,18 +48,23 @@ static void init(){
   init_gfx();
   init_hud();
   sequencer_init();
-  module_bpm_init();
 }
 
 static void tick(){
   sequencer_tick();
   scenes_sequencer_track_tick();
+
+  // XXX
   module_bpm_tick(true);
+  module_ctrl_duty_sqr2_tick(false);
 }
 
 static void draw(){
   scenes_sequencer_track_draw();
+
+  // XXX
   module_bpm_draw(true);
+  module_ctrl_duty_sqr2_draw(false);
 }
 
 const Scene scenes_sequencer = { true, &init, &tick, &draw };
