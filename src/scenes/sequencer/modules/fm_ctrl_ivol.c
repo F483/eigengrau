@@ -1,4 +1,3 @@
-
 // Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
 // License: MIT (see LICENSE file)
 
@@ -6,7 +5,6 @@
 #include <src/gba/all.h>
 #include <src/lib/all.h>
 #include <src/scenes/sequencer/main.h>
-#include <src/scenes/sequencer/modules/all.h>
 
 #define BG_MAP        (const Uint16*)&sequencer_bg_Map
 #define FONT_TILES    (INDEX_2D(7, 20, 32, BG_MAP) bitand TME_TILE_ID_MASK)

@@ -149,9 +149,6 @@ inline void uitoa(char buffer[6], Uint16 num){
 ////////////////////
 
 inline Uint32 wrap_index(Uint32 entries, Uint32 current, Sint32 move){
-  assert(current < entries);
-  assert((entries + move) < (entries + entries));
-  assert(((Sint32)entries + move) >= 0);
   return (current + entries + move) % entries;
 }
 

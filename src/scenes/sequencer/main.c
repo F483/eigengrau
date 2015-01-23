@@ -7,7 +7,7 @@
 #include <src/scenes/all.h>
 #include <src/scenes/sequencer/main.h>
 #include <src/scenes/sequencer/track.h>
-#include <src/scenes/sequencer/modules/all.h>
+#include <src/scenes/sequencer/groups/all.h>
 
 // memory setup
 #define BG_TILEBANK       0
@@ -19,19 +19,6 @@
 #define BG_MAPLEN         sequencer_bg_MapLen
 #define BG_MAP            (Uint16*)&sequencer_bg_Map
 #define BG_PALETTE        (Uint16*)&sequencer_bg_Pal
-
-
-
-const Module env_modules[5] = {
-  { &module_fm_ctrl_duty_sqr2_tick ,   &module_fm_ctrl_duty_sqr2_draw },
-  { &module_fm_ctrl_dir_sqr2_tick ,    &module_fm_ctrl_dir_sqr2_draw },
-  { &module_fm_ctrl_ivol_sqr2_tick ,   &module_fm_ctrl_ivol_sqr2_draw },
-  { &module_fm_ctrl_steps_sqr2_tick ,  &module_fm_ctrl_steps_sqr2_draw },
-  { &module_fm_ctrl_len_sqr2_tick ,    &module_fm_ctrl_len_sqr2_draw }
-};
-
-ModuleGroup env_group = { 5, 0, env_modules };
-
 
 static void init_gfx(){
 
@@ -66,17 +53,15 @@ static void tick(){
   sequencer_tick();
   scenes_sequencer_track_tick();
 
-  // XXX
-  module_bpm_tick(false);
-  module_group_tick(&env_group);
+  group_tick(&group_bpm, false);
+  group_tick(&group_fm_ctrl_sqr2, true);
 }
 
 static void draw(){
   scenes_sequencer_track_draw();
 
-  // XXX
-  module_bpm_draw(false);
-  module_group_draw(&env_group);
+  group_draw(&group_bpm, false);
+  group_draw(&group_fm_ctrl_sqr2, true);
 }
 
 const Scene scenes_sequencer = { true, &init, &tick, &draw };

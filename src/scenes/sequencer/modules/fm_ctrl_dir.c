@@ -5,7 +5,6 @@
 #include <src/gba/all.h>
 #include <src/lib/all.h>
 #include <src/scenes/sequencer/main.h>
-#include <src/scenes/sequencer/modules/all.h>
 
 #define BG_MAP    (const Uint16*)&sequencer_bg_Map
 #define X         1
