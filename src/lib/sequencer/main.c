@@ -16,7 +16,8 @@ void sequencer_init(){
   // setup channels
   snd_reg_fm = snd_fm_build_lr(SND_FM_C2, 7);
 
-  // XXX defaults
-  sequence_tracks_active[SQR2].normal.fm_ctrl = snd_sqr_build(0, SND_SQR_DUTY1_8, 1, SND_SQR_ENV_DIR_DEC, 6);
+  // set defaults
+  Uint16 fm_ctrl = snd_sqr_build(32, SND_SQR_DUTY1_8, 1, SND_SQR_ENV_DIR_DEC, 6);
+  sequence_tracks_active[SQR2].normal.fm_ctrl = fm_ctrl;
 }
 

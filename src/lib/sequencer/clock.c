@@ -27,12 +27,15 @@ void sequencer_bpm_dec(){
 
 void play_step(Uint16 index){
 
+  // XXX play note
+  if(index % 4 == 0){
+    synth_play_channel2(index % 4, SYNTH_OCTAVE_C0);
+  }
 
-  // XXX
-  synth_play_channel2(index % 4, SYNTH_OCTAVE_C0);
-
+  // copy sound config
   snd_reg_c2_ctrl = sequence_tracks_active[SQR2].normal.fm_ctrl;
 
+  // update clock
   next_step_time = ((steps_played + 1) * 3600) / (bpm * 4);
   steps_played++;
 }

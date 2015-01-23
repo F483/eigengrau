@@ -198,6 +198,7 @@ inline Uint16 snd_sweep_build(Uint16 shift, Uint16 dir, Uint16 time){
 #define SND_SQR_LEN_MASK        0x003F
 #define SND_SQR_LEN_SHIFT       0
 #define SND_SQR_LEN(n)          ((n) << SND_SQR_LEN_SHIFT)
+#define SND_SQR_LEN_READ(n)     ((n & SND_SQR_LEN_MASK) >> SND_SQR_LEN_SHIFT)
 
 #define SND_SQR_DUTY_MASK       0x00C0
 #define SND_SQR_DUTY_SHIFT      6

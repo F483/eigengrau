@@ -29,12 +29,8 @@ void module_bpm_tick(Bool active){
 
 void module_bpm_draw(Bool active){
   Uint16  bpm = sequencer_bpm_get();
-  Font font_inactive = { FONT_TILES, 0, SCENES_SEQUENCER_HUD_MAPMEM };
-  Font font_active = { FONT_TILES, 1, SCENES_SEQUENCER_HUD_MAPMEM };
-  if(active){
-    font_print_i3(&font_active, POS_X, POS_Y_BPM, bpm);
-  } else { // inactive
-    font_print_i3(&font_inactive, POS_X, POS_Y_BPM, bpm);
-  }
+  Uint16 palbank = active ? 1 : 0;
+  Font font = { FONT_TILES, palbank, SCENES_SEQUENCER_HUD_MAPMEM };
+  font_print_i3(&font, POS_X, POS_Y_BPM, bpm);
 }
 
