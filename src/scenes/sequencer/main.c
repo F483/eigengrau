@@ -56,8 +56,9 @@ static void tick(){
 
   // XXX
   module_bpm_tick(false);
-  module_fm_ctrl_len_sqr2_tick(true);
+  module_fm_ctrl_len_sqr2_tick(false);
   module_fm_ctrl_duty_sqr2_tick(false);
+  module_fm_ctrl_steps_sqr2_tick(true);
 }
 
 static void draw(){
@@ -65,8 +66,9 @@ static void draw(){
 
   // XXX
   module_bpm_draw(false);
-  module_fm_ctrl_len_sqr2_draw(true);
+  module_fm_ctrl_len_sqr2_draw(false);
   module_fm_ctrl_duty_sqr2_draw(false);
+  module_fm_ctrl_steps_sqr2_draw(true);
 }
 
 const Scene scenes_sequencer = { true, &init, &tick, &draw };

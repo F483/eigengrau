@@ -44,6 +44,18 @@ void font_print_i2(const Font* font, Uint16 x, Uint16 y, Uint16 num){
   INDEX_2D(x, y, 32, font->map) = tme_build(tileid, 0, 0, font->palbank);
 }
 
+void font_print_i1(const Font* font, Uint16 x, Uint16 y, Uint16 num){
+
+  // iter 0
+  Uint16 tileid = font->tiles + FONT_NUMBERS_OFFSET + (num % 10);
+  INDEX_2D(x, y, 32, font->map) = tme_build(tileid, 0, 0, font->palbank);
+}
+
+void font_print_dial(const Font* font, Uint16 x, Uint16 y, Uint16 num){
+  Uint16 tileid = font->tiles + (num % 16);
+  INDEX_2D(x, y, 32, font->map) = tme_build(tileid, 0, 0, font->palbank);
+}
+
 void font_print(const Font* font, Uint16 x, Uint16 y, const char* str){
   Uint16 c = 0;
   Uint16 cx = x;

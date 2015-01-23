@@ -39,5 +39,14 @@ inline Uint16 sequencer_cfg_fm_ctrl_len_get(SequencerTrack track){
   return SND_SQR_LEN_READ(SEQUENCER_CFG_NORMAL(track).fm_ctrl);
 }
 
+inline void sequencer_cfg_fm_ctrl_steps_set(SequencerTrack track, Sint16 steps){
+  BIT_CLEAR(SEQUENCER_CFG_NORMAL(track).fm_ctrl, SND_SQR_STEPS_MASK);
+  BIT_SET(SEQUENCER_CFG_NORMAL(track).fm_ctrl, SND_SQR_STEPS(steps));
+}
+
+inline Uint16 sequencer_cfg_fm_ctrl_steps_get(SequencerTrack track){
+  return SND_SQR_STEPS_READ(SEQUENCER_CFG_NORMAL(track).fm_ctrl);
+}
+
 #endif
 

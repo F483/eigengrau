@@ -8,11 +8,11 @@
 #include <src/scenes/sequencer/modules/all.h>
 
 #define BG_MAP        (const Uint16*)&sequencer_bg_Map
-#define FONT_TILES    (INDEX_2D(0, 29, 32, BG_MAP) bitand TME_TILE_ID_MASK)
+#define FONT_TILES    ((INDEX_2D(12, 20, 32, BG_MAP) bitand TME_TILE_ID_MASK))
 #define X             1
-#define Y             4
+#define Y             6
 #define LABEL_X       0
-#define LABEL_Y       21
+#define LABEL_Y       23
 
 #define KEYS_INC      (INPUT_KEY_A | INPUT_KEY_RIGHT)
 #define KEYS_DEC      (INPUT_KEY_B | INPUT_KEY_LEFT)
@@ -24,9 +24,10 @@ static void draw(Bool active, SequencerTrack track){
 
   tme_cp_tile(LABEL_X + 0, LABEL_Y, BG_MAP, X + 0, Y, mem, 0, 0, palbank);
   tme_cp_tile(LABEL_X + 1, LABEL_Y, BG_MAP, X + 1, Y, mem, 0, 0, palbank);
+  tme_cp_tile(LABEL_X + 2, LABEL_Y, BG_MAP, X + 2, Y, mem, 0, 0, palbank);
 
-  Uint16 value = sequencer_cfg_fm_ctrl_len_get(track);
-  font_print_i2(&font, X + 2, Y, 63 - value);
+  Uint16 value = sequencer_cfg_fm_ctrl_steps_get(track);
+  font_print_dial(&font, X + 3, Y, value * 2);
 }
 
 static void tick(Bool active, SequencerTrack track){
@@ -34,35 +35,35 @@ static void tick(Bool active, SequencerTrack track){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_len_get(track);
-    sequencer_cfg_fm_ctrl_len_set(track, wrap_index_prev(64, value));
+    Uint16 value = sequencer_cfg_fm_ctrl_steps_get(track);
+    sequencer_cfg_fm_ctrl_steps_set(track, wrap_index_next(8, value));
   } else if (input_key_hit(KEYS_DEC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_len_get(track);
-    sequencer_cfg_fm_ctrl_len_set(track, wrap_index_next(64, value));
+    Uint16 value = sequencer_cfg_fm_ctrl_steps_get(track);
+    sequencer_cfg_fm_ctrl_steps_set(track, wrap_index_prev(8, value));
   }
 }
 
-void module_fm_ctrl_len_sqr1_tick(Bool active){
+void module_fm_ctrl_steps_sqr1_tick(Bool active){
   tick(active, SQR1);
 }
 
-void module_fm_ctrl_len_sqr1_draw(Bool active){
+void module_fm_ctrl_steps_sqr1_draw(Bool active){
   draw(active, SQR1);
 }
 
-void module_fm_ctrl_len_sqr2_tick(Bool active){
+void module_fm_ctrl_steps_sqr2_tick(Bool active){
   tick(active, SQR2);
 }
 
-void module_fm_ctrl_len_sqr2_draw(Bool active){
+void module_fm_ctrl_steps_sqr2_draw(Bool active){
   draw(active, SQR2);
 }
 
-void module_fm_ctrl_len_noise_tick(Bool active){
+void module_fm_ctrl_steps_noise_tick(Bool active){
   tick(active, NOISE);
 }
 
-void module_fm_ctrl_len_noise_draw(Bool active){
+void module_fm_ctrl_steps_noise_draw(Bool active){
   draw(active, NOISE);
 }
 

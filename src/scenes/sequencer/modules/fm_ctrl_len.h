@@ -4,7 +4,7 @@
 #ifndef SCENES_SEQUENCER_MODULES_FM_CTRL_LEN_H
 #define SCENES_SEQUENCER_MODULES_FM_CTRL_LEN_H
 
-#include <src/scenes/sequencer/module.h>
+#include <src/lib/common.h>
 
 void module_fm_ctrl_len_sqr1_init();
 void module_fm_ctrl_len_sqr1_tick(Bool active);
