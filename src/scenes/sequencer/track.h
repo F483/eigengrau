@@ -6,10 +6,9 @@
 
 #include <src/lib/all.h>
 
-void scenes_sequencer_track_init();
-void scenes_sequencer_track_tick();
-void scenes_sequencer_track_draw();
+void            scenes_sequencer_track_tick();
+void            scenes_sequencer_track_draw();
+SequencerTrack  scenes_sequencer_track_curr();
 
-extern SequencerTrack scenes_sequencer_track_selected;
 
 #endif

@@ -14,33 +14,34 @@
 #define POS_X     10
 #define POS_Y     1
 
-SequencerTrack scenes_sequencer_track_selected = DEFAULT;
-SequencerTrack scenes_sequencer_track_previous = DEFAULT;
+#define KEYS_NEXT INPUT_KEY_L
+#define KEYS_PREV INPUT_KEY_R
+
+SequencerTrack selected = DEFAULT;
+SequencerTrack previous = DEFAULT;
 
 static inline void set_track(SequencerTrack track, Uint16 tile){
   INDEX_2D(POS_X, POS_Y + track, 32, SCENES_SEQUENCER_HUD_MAPMEM) = tile;
 }
 
-void scenes_sequencer_track_init(){
-  set_track(DEFAULT, TILE_ON);
-}
-
 void scenes_sequencer_track_draw(){
-  set_track(scenes_sequencer_track_previous, TILE_OFF);
-  set_track(scenes_sequencer_track_selected, TILE_ON);
+  set_track(previous, TILE_OFF);
+  set_track(selected, TILE_ON);
 }
 
 void scenes_sequencer_track_tick(){
   Uint32 cnt = SEQUENCER_TRACK_CNT;
-  SequencerTrack selected = scenes_sequencer_track_selected;
-  if(input_key_hit(INPUT_KEY_START)){
-    scenes_sequencer_track_previous = scenes_sequencer_track_selected;
-    scenes_sequencer_track_selected = wrap_index_next(cnt, selected);
-  } else if(input_key_hit(INPUT_KEY_SELECT)){
-    scenes_sequencer_track_previous = scenes_sequencer_track_selected;
-    scenes_sequencer_track_selected = wrap_index_prev(cnt, selected);
+  if(input_key_hit(KEYS_NEXT)){
+    previous = selected;
+    selected = wrap_index_next(cnt, selected);
+  } else if(input_key_hit(KEYS_PREV)){
+    previous = selected;
+    selected = wrap_index_prev(cnt, selected);
   }
 }
 
+SequencerTrack scenes_sequencer_track_curr(){
+  return selected;
+}
 
 

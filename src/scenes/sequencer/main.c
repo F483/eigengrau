@@ -7,7 +7,7 @@
 #include <src/scenes/all.h>
 #include <src/scenes/sequencer/main.h>
 #include <src/scenes/sequencer/track.h>
-#include <src/scenes/sequencer/groups/all.h>
+#include <src/scenes/sequencer/bundle.h>
 
 // memory setup
 #define BG_TILEBANK       0
@@ -39,29 +39,20 @@ static void init_gfx(){
   pal_set_bg(BG_PALETTE);
 }
 
-static void init_hud(){
-  scenes_sequencer_track_init();
-}
-
 static void init(){
   init_gfx();
-  init_hud();
   sequencer_init();
 }
 
 static void tick(){
   sequencer_tick();
   scenes_sequencer_track_tick();
-
-  group_tick(&group_bpm, false);
-  group_tick(&group_fm_ctrl_sqr2, true);
+  bundle_tick(&bundles[scenes_sequencer_track_curr()]);
 }
 
 static void draw(){
   scenes_sequencer_track_draw();
-
-  group_draw(&group_bpm, false);
-  group_draw(&group_fm_ctrl_sqr2, true);
+  bundle_draw(&bundles[scenes_sequencer_track_curr()]);
 }
 
 const Scene scenes_sequencer = { true, &init, &tick, &draw };
