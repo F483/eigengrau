@@ -190,20 +190,20 @@ inline Uint16 snd_sweep_build(Uint16 shift, Uint16 dir, Uint16 time){
 // BITS  NAME                   DESCRIPTION                                   //
 // 0-5   SND_SQR_LEN*           Sound Length                                  //
 // 6-7   SND_SQR_DUTY*          Waveform type                                 //
-// 8-10  SND_SQR_STEPS*     Time between envelope changes.                //
-// 11    SND_SQR_DIR_*      Envelope Attenuate/Amplify                    //
-// 12-15 SND_SQR_IVOL*      Envelope Initial Value                        //
+// 8-10  SND_SQR_STEPS*         Time between envelope changes.                //
+// 11    SND_SQR_DIR_*          Envelope Attenuate/Amplify                    //
+// 12-15 SND_SQR_IVOL*          Envelope Initial Value                        //
 ////////////////////////////////////////////////////////////////////////////////
 
 #define SND_SQR_LEN_MASK        0x003F
 #define SND_SQR_LEN_SHIFT       0
 #define SND_SQR_LEN(n)          ((n) << SND_SQR_LEN_SHIFT)
-#define SND_SQR_LEN_READ(n)     ((n & SND_SQR_LEN_MASK) >> SND_SQR_LEN_SHIFT)
+#define SND_SQR_LEN_READ(n)     (((n) & SND_SQR_LEN_MASK) >> SND_SQR_LEN_SHIFT)
 
 #define SND_SQR_DUTY_MASK       0x00C0
 #define SND_SQR_DUTY_SHIFT      6
 #define SND_SQR_DUTY(n)         ((n) << SND_SQR_DUTY_SHIFT)
-#define SND_SQR_DUTY_READ(n)    ((n & SND_SQR_DUTY_MASK) >> SND_SQR_DUTY_SHIFT)
+#define SND_SQR_DUTY_READ(n)    (((n) & SND_SQR_DUTY_MASK) >> SND_SQR_DUTY_SHIFT)
 #define SND_SQR_DUTY1_8         0 // 12.5% duty cycle (#-------)
 #define SND_SQR_DUTY1_4         1 // 25.0% duty cycle (##------)
 #define SND_SQR_DUTY1_2         2 // 50.0% duty cycle (####----)
@@ -212,14 +212,19 @@ inline Uint16 snd_sweep_build(Uint16 shift, Uint16 dir, Uint16 time){
 #define SND_SQR_STEPS_MASK      0x0700
 #define SND_SQR_STEPS_SHIFT     8
 #define SND_SQR_STEPS(n)        ((n) << SND_SQR_STEPS_SHIFT)
-#define SND_SQR_STEPS_READ(n)   ((n & SND_SQR_STEPS_MASK) >> SND_SQR_STEPS_SHIFT)
+#define SND_SQR_STEPS_READ(n)   (((n) & SND_SQR_STEPS_MASK) >> SND_SQR_STEPS_SHIFT)
 
+#define SND_SQR_DIR_MASK        0x0800
+#define SND_SQR_DIR_SHIFT       11
+#define SND_SQR_DIR(n)          ((n) << SND_SQR_DIR_SHIFT)
+#define SND_SQR_DIR_READ(n)     (((n) & SND_SQR_DIR_MASK) >> SND_SQR_DIR_SHIFT)
 #define SND_SQR_DIR_DEC         0       // Increasing volume
 #define SND_SQR_DIR_INC         0x0800  // Decreasing volume
 
 #define SND_SQR_IVOL_MASK       0xF000
 #define SND_SQR_IVOL_SHIFT      12
 #define SND_SQR_IVOL(n)         ((n) << SND_SQR_IVOL_SHIFT)
+#define SND_SQR_IVOL_READ(n)    (((n) & SND_SQR_IVOL_MASK) >> SND_SQR_IVOL_SHIFT)
 
 /**
  * @param len       6bit 0-63
@@ -233,7 +238,7 @@ inline Uint16 snd_sqr_build(Uint16 len, Uint16 duty,
   return (SND_SQR_IVOL(ivol) bitand SND_SQR_IVOL_MASK)    bitor
          (dir bitand SND_SQR_DIR_INC)                     bitor
          (SND_SQR_STEPS(steps) bitand SND_SQR_STEPS_MASK) bitor
-         (SND_SQR_DUTY(duty) bitand SND_SQR_DUTY_MASK)        bitor
+         (SND_SQR_DUTY(duty) bitand SND_SQR_DUTY_MASK)    bitor
          (len bitand SND_SQR_LEN_MASK);
 }
 

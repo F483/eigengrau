@@ -9,7 +9,7 @@
 
 #define BG_MAP        (const Uint16*)&sequencer_bg_Map
 #define X             1
-#define Y             5
+#define Y             4
 #define LABEL_X       0
 #define LABEL_Y       22
 #define VAL_X         2
@@ -25,9 +25,8 @@ static void draw(Bool active, SequencerTrack track){
 
   tme_cp_tile(LABEL_X + 0, LABEL_Y, BG_MAP, X + 0, Y, mem, 0, 0, palbank);
   tme_cp_tile(LABEL_X + 1, LABEL_Y, BG_MAP, X + 1, Y, mem, 0, 0, palbank);
-
-  tme_cp_tile(VAL_X + 0 + val * 2, VAL_Y, BG_MAP, X + 2, Y, mem, 0, 0, palbank);
-  tme_cp_tile(VAL_X + 1 + val * 2, VAL_Y, BG_MAP, X + 3, Y, mem, 0, 0, palbank);
+  tme_cp_tile(LABEL_X + 2, LABEL_Y, BG_MAP, X + 2, Y, mem, 0, 0, palbank);
+  tme_cp_tile(VAL_X + val, VAL_Y,   BG_MAP, X + 3, Y, mem, 0, 0, palbank);
 }
 
 static void tick(Bool active, SequencerTrack track){

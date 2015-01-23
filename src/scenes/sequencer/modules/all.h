@@ -8,6 +8,8 @@
 #include <src/scenes/sequencer/modules/fm_ctrl_len.h>
 #include <src/scenes/sequencer/modules/fm_ctrl_duty.h>
 #include <src/scenes/sequencer/modules/fm_ctrl_steps.h>
+#include <src/scenes/sequencer/modules/fm_ctrl_dir.h>
+#include <src/scenes/sequencer/modules/fm_ctrl_ivol.h>
 
 #endif
 

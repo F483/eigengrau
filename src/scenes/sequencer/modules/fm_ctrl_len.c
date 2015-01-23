@@ -8,9 +8,9 @@
 #include <src/scenes/sequencer/modules/all.h>
 
 #define BG_MAP        (const Uint16*)&sequencer_bg_Map
-#define FONT_TILES    (INDEX_2D(0, 29, 32, BG_MAP) bitand TME_TILE_ID_MASK)
+#define FONT_TILES    (INDEX_2D(7, 20, 32, BG_MAP) bitand TME_TILE_ID_MASK)
 #define X             1
-#define Y             4
+#define Y             8
 #define LABEL_X       0
 #define LABEL_Y       21
 
@@ -24,9 +24,10 @@ static void draw(Bool active, SequencerTrack track){
 
   tme_cp_tile(LABEL_X + 0, LABEL_Y, BG_MAP, X + 0, Y, mem, 0, 0, palbank);
   tme_cp_tile(LABEL_X + 1, LABEL_Y, BG_MAP, X + 1, Y, mem, 0, 0, palbank);
+  tme_cp_tile(LABEL_X + 2, LABEL_Y, BG_MAP, X + 2, Y, mem, 0, 0, palbank);
 
   Uint16 value = sequencer_cfg_fm_ctrl_len_get(track);
-  font_print_i2(&font, X + 2, Y, 63 - value);
+  font_print_dial(&font, X + 3, Y, (63 - value) / 4);
 }
 
 static void tick(Bool active, SequencerTrack track){
@@ -35,10 +36,10 @@ static void tick(Bool active, SequencerTrack track){
   }
   if(input_key_hit(KEYS_INC)){
     Uint16 value = sequencer_cfg_fm_ctrl_len_get(track);
-    sequencer_cfg_fm_ctrl_len_set(track, wrap_index_prev(64, value));
+    sequencer_cfg_fm_ctrl_len_set(track, wrap_index(64, value, -4));
   } else if (input_key_hit(KEYS_DEC)){
     Uint16 value = sequencer_cfg_fm_ctrl_len_get(track);
-    sequencer_cfg_fm_ctrl_len_set(track, wrap_index_next(64, value));
+    sequencer_cfg_fm_ctrl_len_set(track, wrap_index(64, value, 4));
   }
 }
 
