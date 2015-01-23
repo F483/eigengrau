@@ -39,7 +39,7 @@ static void init(){
 
 static void tick(){
   if (!company_ttl or input_key_down(NEXT_KEYS)){
-    scene_set(&scenes_sequencer);
+    scene_set(&scenes_panel);
   }
   company_ttl--;
 }

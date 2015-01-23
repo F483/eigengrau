@@ -1,8 +1,8 @@
 // Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
 // License: MIT (see LICENSE file)
 
-#include <src/scenes/sequencer/group.h>
-#include <src/scenes/sequencer/modules/all.h>
+#include <src/scenes/panel/group.h>
+#include <src/scenes/panel/modules/all.h>
 
 
 const Module modules_env_sqr1[5] = {

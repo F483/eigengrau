@@ -3,8 +3,8 @@
 
 #include <src/gba/all.h>
 #include <src/lib/all.h>
-#include <src/scenes/sequencer/bundle.h>
-#include <src/scenes/sequencer/groups/all.h>
+#include <src/scenes/panel/bundle.h>
+#include <src/scenes/panel/groups/all.h>
 
 #define BUNDLE_KEYS_NEXT      INPUT_KEY_START
 #define BUNDLE_KEYS_PREV      INPUT_KEY_SELECT

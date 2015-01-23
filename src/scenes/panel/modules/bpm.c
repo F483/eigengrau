@@ -4,7 +4,7 @@
 #include <gfx/sequencer_bg.h>
 #include <src/gba/all.h>
 #include <src/lib/all.h>
-#include <src/scenes/sequencer/main.h>
+#include <src/scenes/panel/main.h>
 
 #define BG_MAP        (const Uint16*)&sequencer_bg_Map
 #define FONT_TILES    (INDEX_2D(0, 29, 32, BG_MAP) bitand TME_TILE_ID_MASK)
@@ -29,7 +29,7 @@ void module_bpm_tick(Bool active){
 void module_bpm_draw(Bool active){
   Uint16  bpm = sequencer_bpm_get();
   Uint16 palbank = active ? 1 : 0;
-  Font font = { FONT_TILES, palbank, SCENES_SEQUENCER_HUD_MAPMEM };
+  Font font = { FONT_TILES, palbank, PANEL_HUD_MAPMEM };
   font_print_i3(&font, POS_X, POS_Y_BPM, bpm);
 }
 

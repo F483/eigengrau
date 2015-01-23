@@ -4,7 +4,7 @@
 #include <gfx/sequencer_bg.h>
 #include <src/gba/all.h>
 #include <src/lib/all.h>
-#include <src/scenes/sequencer/main.h>
+#include <src/scenes/panel/main.h>
 
 #define BG_MAP    (const Uint16*)&sequencer_bg_Map
 #define X         1
@@ -19,7 +19,7 @@
 static void draw(Bool active, SequencerTrack track){
   Uint16 val = sequencer_cfg_fm_ctrl_dir_get(track);
   Uint16 palbank = active ? 1 : 0;
-  Uint16* mem = SCENES_SEQUENCER_HUD_MAPMEM;
+  Uint16* mem = PANEL_HUD_MAPMEM;
 
   tme_cp_tile(LABEL_X + 0, LABEL_Y, BG_MAP, X + 0, Y, mem, 0, 0, palbank);
   tme_cp_tile(LABEL_X + 1, LABEL_Y, BG_MAP, X + 1, Y, mem, 0, 0, palbank);

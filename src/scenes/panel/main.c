@@ -5,9 +5,9 @@
 #include <src/lib/all.h>
 #include <src/gba/all.h>
 #include <src/scenes/all.h>
-#include <src/scenes/sequencer/main.h>
-#include <src/scenes/sequencer/track.h>
-#include <src/scenes/sequencer/bundle.h>
+#include <src/scenes/panel/main.h>
+#include <src/scenes/panel/track.h>
+#include <src/scenes/panel/bundle.h>
 
 // memory setup
 #define BG_TILEBANK       0
@@ -31,7 +31,7 @@ static void init_gfx(){
 
   // setup hud
   gfx_reg_bg1 = GFX_BG_TILE_MEM(BG_TILEBANK) | GFX_BG_REG_32x32 | GFX_BG_4BPP |
-                GFX_BG_MAP_MEM(SCENES_SEQUENCER_HUD_MAPBANK);
+                GFX_BG_MAP_MEM(PANEL_HUD_MAPBANK);
 
   // copy background tiles, map and palette
   memcpy(tile_bank_mem_4bpp(BG_TILEBANK), BG_TILES, BG_TILESLEN);
@@ -46,14 +46,14 @@ static void init(){
 
 static void tick(){
   sequencer_tick();
-  scenes_sequencer_track_tick();
-  bundle_tick(&bundles[scenes_sequencer_track_curr()]);
+  panel_track_tick();
+  bundle_tick(&bundles[panel_track_curr()]);
 }
 
 static void draw(){
-  scenes_sequencer_track_draw();
-  bundle_draw(&bundles[scenes_sequencer_track_curr()]);
+  panel_track_draw();
+  bundle_draw(&bundles[panel_track_curr()]);
 }
 
-const Scene scenes_sequencer = { true, &init, &tick, &draw };
+const Scene scenes_panel = { true, &init, &tick, &draw };
 

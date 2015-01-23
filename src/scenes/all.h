@@ -7,7 +7,7 @@
 #include <src/lib/all.h>
 
 extern const Scene scenes_company;
-extern const Scene scenes_sequencer;
+extern const Scene scenes_panel;
 
 #endif
 

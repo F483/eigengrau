@@ -22,7 +22,6 @@
 
 #define INPUT_KEYS_DPAD   (INPUT_KEY_UP bitor INPUT_KEY_DOWN bitor \
                            INPUT_KEY_LEFT bitor INPUT_KEY_RIGHT)
-#define INPUT_KEYS_ALL    INPUT_KEY_MASK
 
 extern Uint16 _input_key_curr;
 extern Uint16 _input_key_prev;
@@ -30,7 +29,7 @@ extern Uint16 _input_key_prev;
 // Read user input.
 inline void input_poll(){
   _input_key_prev = _input_key_curr;
-  _input_key_curr = compl input_reg_key bitand INPUT_KEY_MASK;
+  _input_key_curr = compl input_reg_key;
 }
 
 // Check if key is currently pressed.
@@ -41,11 +40,6 @@ inline Bool input_key_down(Uint16 key){
 // Check if key is currently not pressed.
 inline Bool input_key_up(Uint16 key){
   return compl _input_key_curr bitand key;
-}
-
-// Check if key is held (down now and before).
-inline Bool input_key_held(Uint16 key){
-  return (_input_key_curr bitand _input_key_prev) bitand key;
 }
 
 // Check if key is pressed now but not before.

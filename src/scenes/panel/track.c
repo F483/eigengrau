@@ -4,7 +4,7 @@
 #include <gfx/sequencer_bg.h>
 #include <src/lib/all.h>
 #include <src/gba/all.h>
-#include <src/scenes/sequencer/main.h>
+#include <src/scenes/panel/main.h>
 
 #define BG_MAP    (Uint16*)&sequencer_bg_Map
 
@@ -21,15 +21,15 @@ SequencerTrack selected = DEFAULT;
 SequencerTrack previous = DEFAULT;
 
 static inline void set_track(SequencerTrack track, Uint16 tile){
-  INDEX_2D(POS_X, POS_Y + track, 32, SCENES_SEQUENCER_HUD_MAPMEM) = tile;
+  INDEX_2D(POS_X, POS_Y + track, 32, PANEL_HUD_MAPMEM) = tile;
 }
 
-void scenes_sequencer_track_draw(){
+void panel_track_draw(){
   set_track(previous, TILE_OFF);
   set_track(selected, TILE_ON);
 }
 
-void scenes_sequencer_track_tick(){
+void panel_track_tick(){
   Uint32 cnt = SEQUENCER_TRACK_CNT;
   if(input_key_hit(KEYS_NEXT)){
     previous = selected;
@@ -40,7 +40,7 @@ void scenes_sequencer_track_tick(){
   }
 }
 
-SequencerTrack scenes_sequencer_track_curr(){
+SequencerTrack panel_track_curr(){
   return selected;
 }
 

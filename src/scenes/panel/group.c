@@ -3,7 +3,7 @@
 
 #include <src/gba/all.h>
 #include <src/lib/all.h>
-#include <src/scenes/sequencer/group.h>
+#include <src/scenes/panel/group.h>
 
 #define GROUP_KEYS_NEXT      INPUT_KEY_DOWN
 #define GROUP_KEYS_PREV      INPUT_KEY_UP

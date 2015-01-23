@@ -1,10 +1,10 @@
 // Copyright (c) 2015 Fabian Barkhau <fabian.barkhau@gmail.com>
 // License: MIT (see LICENSE file)
 
-#ifndef SCENES_SEQUENCER_GROUP_H
-#define SCENES_SEQUENCER_GROUP_H
+#ifndef PANEL_GROUP_H
+#define PANEL_GROUP_H
 
-#include <src/scenes/sequencer/module.h>
+#include <src/scenes/panel/module.h>
 
 typedef struct {
   Uint32        size;
