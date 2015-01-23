@@ -25,15 +25,27 @@ void sequencer_bpm_dec(){
   sequencer_bpm_set(bpm - 1);
 }
 
+void play_notes(Uint16 index){
+  // XXX play note
+  if(index % 2 == 1){
+    synth_play_channel1(index % 8, SYNTH_OCTAVE_C3);
+  }
+  if(index % 2 == 0){
+    synth_play_channel2(index % 8, SYNTH_OCTAVE_C3);
+  }
+  if(index % 4 == 0){
+    synth_play_channel4(index % 4, SYNTH_OCTAVE_C0);
+  }
+}
+
 void play_step(Uint16 index){
 
-  // XXX play note
-  if(index % 2 == 0){
-    synth_play_channel2(index % 8, SYNTH_OCTAVE_C0);
-  }
-
   // copy sound config
+  snd_reg_c1_ctrl = sequence_tracks_active[SQR1].normal.fm_ctrl;
   snd_reg_c2_ctrl = sequence_tracks_active[SQR2].normal.fm_ctrl;
+  snd_reg_c4_ctrl = sequence_tracks_active[NOISE].normal.fm_ctrl;
+
+  play_notes(index);
 
   // update clock
   next_step_time = ((steps_played + 1) * 3600) / (bpm * 4);

@@ -8,7 +8,7 @@
 
 #define BG_MAP    (Uint16*)&sequencer_bg_Map
 
-#define DEFAULT   SQR2
+#define DEFAULT   SQR1
 #define TILE_OFF  INDEX_2D(0, 20, 32, BG_MAP)
 #define TILE_ON   INDEX_2D(1, 20, 32, BG_MAP)
 #define POS_X     10

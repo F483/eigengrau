@@ -14,6 +14,6 @@ void sequencer_init(){
   snd_reg_status = SND_STATUS_ENABLE;
 
   // setup channels
-  snd_reg_fm = snd_fm_build_lr(SND_FM_C2, 7);
+  snd_reg_fm = snd_fm_build_lr(SND_FM_C1 | SND_FM_C2 | SND_FM_C4, 7);
 }
 

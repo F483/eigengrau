@@ -32,16 +32,26 @@ void bundle_tick(Bundle* bundle){
 // BUNDLES //
 /////////////
 
-Group* groups_sqr2[5] = {
+Group* groups_sqr1[2] = {
+  &group_bpm, 
+  &group_fm_ctrl_sqr1
+};
+
+Group* groups_sqr2[2] = {
   &group_bpm, 
   &group_fm_ctrl_sqr2
 };
 
+Group* groups_noise[2] = {
+  &group_bpm, 
+  &group_fm_ctrl_noise
+};
+
 Bundle bundles[SEQUENCER_TRACK_CNT] = {
-  { 0, 0, NULL },         // sqr1
+  { 2, 0, groups_sqr1 },  // sqr1
   { 2, 0, groups_sqr2 },  // sqr2
   { 0, 0, NULL },         // wave
-  { 0, 0, NULL },         // noise
+  { 2, 0, groups_noise }, // noise
   { 0, 0, NULL },         // smpl1
   { 0, 0, NULL },         // smpl2
 };
