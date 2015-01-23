@@ -28,8 +28,8 @@ void sequencer_bpm_dec(){
 void play_step(Uint16 index){
 
   // XXX play note
-  if(index % 4 == 0){
-    synth_play_channel2(index % 4, SYNTH_OCTAVE_C0);
+  if(index % 2 == 0){
+    synth_play_channel2(index % 8, SYNTH_OCTAVE_C0);
   }
 
   // copy sound config

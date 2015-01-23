@@ -21,6 +21,18 @@
 #define BG_PALETTE        (Uint16*)&sequencer_bg_Pal
 
 
+
+const Module env_modules[5] = {
+  { &module_fm_ctrl_duty_sqr2_tick ,   &module_fm_ctrl_duty_sqr2_draw },
+  { &module_fm_ctrl_dir_sqr2_tick ,    &module_fm_ctrl_dir_sqr2_draw },
+  { &module_fm_ctrl_ivol_sqr2_tick ,   &module_fm_ctrl_ivol_sqr2_draw },
+  { &module_fm_ctrl_steps_sqr2_tick ,  &module_fm_ctrl_steps_sqr2_draw },
+  { &module_fm_ctrl_len_sqr2_tick ,    &module_fm_ctrl_len_sqr2_draw }
+};
+
+ModuleGroup env_group = { 5, 0, env_modules };
+
+
 static void init_gfx(){
 
   // setup display
@@ -56,11 +68,7 @@ static void tick(){
 
   // XXX
   module_bpm_tick(false);
-  module_fm_ctrl_len_sqr2_tick(true);
-  module_fm_ctrl_duty_sqr2_tick(false);
-  module_fm_ctrl_steps_sqr2_tick(false);
-  module_fm_ctrl_dir_sqr2_tick(false);
-  module_fm_ctrl_ivol_sqr2_tick(false);
+  module_group_tick(&env_group);
 }
 
 static void draw(){
@@ -68,11 +76,7 @@ static void draw(){
 
   // XXX
   module_bpm_draw(false);
-  module_fm_ctrl_len_sqr2_draw(true);
-  module_fm_ctrl_duty_sqr2_draw(false);
-  module_fm_ctrl_steps_sqr2_draw(false);
-  module_fm_ctrl_dir_sqr2_draw(false);
-  module_fm_ctrl_ivol_sqr2_draw(false);
+  module_group_draw(&env_group);
 }
 
 const Scene scenes_sequencer = { true, &init, &tick, &draw };
