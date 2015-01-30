@@ -7,7 +7,7 @@
 #include <src/scenes/panel/groups/all.h>
 
 #define BUNDLE_KEYS_NEXT      INPUT_KEY_START
-#define BUNDLE_KEYS_PREV      INPUT_KEY_SELECT
+#define BUNDLE_KEYS_PREV      0 // FIXME use INPUT_KEY_SELECT
 
 void bundle_draw(Bundle* bundle){
   for(Uint32 i = 0; i < bundle->size; i++){
@@ -33,18 +33,18 @@ void bundle_tick(Bundle* bundle){
 /////////////
 
 Group* groups_sqr1[2] = {
-  &group_bpm, 
-  &group_fm_ctrl_sqr1
+  &group_fm_ctrl_sqr1,
+  &group_bpm
 };
 
 Group* groups_sqr2[2] = {
-  &group_bpm, 
-  &group_fm_ctrl_sqr2
+  &group_fm_ctrl_sqr2,
+  &group_bpm
 };
 
 Group* groups_noise[2] = {
-  &group_bpm, 
-  &group_fm_ctrl_noise
+  &group_fm_ctrl_noise,
+  &group_bpm
 };
 
 Bundle bundles[SEQUENCER_TRACK_CNT] = {

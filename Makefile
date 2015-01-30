@@ -109,5 +109,4 @@ clean:
 	@find | grep -i ".*\.map$$" | xargs -r -L1 rm
 	@find | grep -i ".*\.elf$$" | xargs -r -L1 rm
 	@find | grep -i ".*\.sav$$" | xargs -r -L1 rm
-	@find | grep -i ".*\.gba$$" | xargs -r -L1 rm
 

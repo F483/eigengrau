@@ -14,8 +14,8 @@
 #define POS_X     10
 #define POS_Y     1
 
-#define KEYS_NEXT INPUT_KEY_L
-#define KEYS_PREV INPUT_KEY_R
+#define KEYS_NEXT INPUT_KEY_SELECT // FIXME INPUT_KEY_L
+#define KEYS_PREV 0                // FIXME INPUT_KEY_R
 
 SequencerTrack selected = DEFAULT;
 SequencerTrack previous = DEFAULT;

@@ -27,14 +27,14 @@ void sequencer_bpm_dec(){
 
 void play_notes(Uint16 index){
   // XXX play note
-  if(index % 2 == 1){
-    synth_play_channel1(index % 8, SYNTH_OCTAVE_C3);
-  }
   if(index % 2 == 0){
-    synth_play_channel2(index % 8, SYNTH_OCTAVE_C3);
+    synth_play_channel1(index % 4, SYNTH_OCTAVE_C3);
+  }
+  if(index % 2 == 1){
+    synth_play_channel2(index % 4, SYNTH_OCTAVE_C2);
   }
   if(index % 4 == 0){
-    synth_play_channel4(index % 4, SYNTH_OCTAVE_C0);
+    synth_play_channel4(index % 4, SYNTH_OCTAVE_C1);
   }
 }
 
