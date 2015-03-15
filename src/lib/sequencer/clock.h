@@ -6,13 +6,13 @@
 
 #include <src/lib/sequencer/sequence.h>
 
-#define LFO_BEAT_SYNC      x
+#define LFO_BEAT_SYNC      TODO
 
-#define LFO_WAVE_SINE      x
-#define LFO_WAVE_SQUARE    x
-#define LFO_WAVE_TRIANGLE  x
-#define LFO_WAVE_SAW_INC   x
-#define LFO_WAVE_SAW_DEC   x
+#define LFO_WAVE_SINE      TODO
+#define LFO_WAVE_SQUARE    TODO
+#define LFO_WAVE_TRIANGLE  TODO
+#define LFO_WAVE_SAW_INC   TODO
+#define LFO_WAVE_SAW_DEC   TODO
 
 typedef struct {
   Uint8 flags;

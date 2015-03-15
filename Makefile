@@ -38,7 +38,6 @@ ASM_SRC += $(shell find | grep -i "snd/.*\.s$$") # sound
 #########
 
 CFLAGS := -std=c99 -Wall -Wextra -Werror -ffast-math -O3
-CFLAGS += -D$(shell echo $(MODE) | tr '[a-z]' '[A-Z]')
 CFLAGS += -mcpu=arm7tdmi -mtune=arm7tdmi -mthumb -mthumb-interwork
 LDFLAGS := -specs=gba.specs -mthumb -mthumb-interwork
 ASFLAGS = -x assembler-with-cpp -mthumb-interwork -mthumb
@@ -46,6 +45,9 @@ ASFLAGS = -x assembler-with-cpp -mthumb-interwork -mthumb
 ifeq ($(MODE), debug)
 CFLAGS += -g
 LDFLAGS += -g -Wl,-Map,$(GAME).elf.map
+endif
+ifeq ($(MODE), release)
+CFLAGS += -DNDEBUG
 endif
 
 

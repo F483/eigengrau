@@ -4,10 +4,6 @@
 #ifndef LIB_COMMON_H
 #define LIB_COMMON_H
 
-#ifndef DEBUG
-#define NDEBUG
-#endif
-
 #include <iso646.h>
 #include <string.h>
 #include <stdbool.h>
