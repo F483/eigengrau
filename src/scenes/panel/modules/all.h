@@ -13,6 +13,16 @@ void module_bpm_tick(Bool active);
 void module_bpm_draw(Bool active);
 
 
+/////////
+// LFO //
+/////////
+
+void module_lfo_a_tick(Bool active);
+void module_lfo_a_draw(Bool active);
+void module_lfo_b_tick(Bool active);
+void module_lfo_b_draw(Bool active);
+
+
 /////////////////
 // fm_ctrl_dir //
 /////////////////

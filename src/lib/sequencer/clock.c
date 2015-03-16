@@ -14,19 +14,15 @@ Uint32 sequencer_bpm_get(){
   return bpm_curr;
 }
 
-void sequencer_bpm_set(Uint32 value){
-  bpm_next = value;
-}
-
 void sequencer_bpm_inc(){
-  sequencer_bpm_set(bpm_curr + 1);
+  bpm_next++;
 }
 
 void sequencer_bpm_dec(){
-  sequencer_bpm_set(bpm_curr - 1);
+  bpm_next--;
 }
 
-void play_notes(Uint16 index){
+inline void play_notes(Uint32 index){
   // XXX play note
   if(index % 2 == 0){
     synth_play_channel1(index % 4, SYNTH_OCTAVE_C3);
@@ -39,25 +35,25 @@ void play_notes(Uint16 index){
   }
 }
 
-Uint16 sequencer_this_step_index(){
+Uint32 sequencer_current_step(){
   return steps_played % 64;
 }
 
-Uint16 sequencer_next_step_index(){
+inline Uint32 next_step(){
   return (steps_played + 1) % 64;
 }
 
-void update_clock(){
+inline void update_clock(){
   if (bpm_curr != bpm_next){ // change bpm if needed
     bpm_curr = bpm_next;
-    steps_played = sequencer_this_step_index(); // reset steps_played
+    steps_played = sequencer_current_step(); // reset steps_played
     time_passed = ((steps_played) * 3600) / (bpm_curr * 4); // reset time_passed
   }
   next_step_time = ((steps_played + 1) * 3600) / (bpm_curr * 4);
   steps_played++;
 }
 
-void play_step(Uint16 index){
+inline void play_step(Uint32 index){
 
   // copy sound config
   snd_reg_c1_ctrl = sequence_tracks_active[SQR1].normal.fm_ctrl;
@@ -69,7 +65,7 @@ void play_step(Uint16 index){
 
 void sequencer_tick(){
   if(next_step_time <= time_passed){
-    play_step(sequencer_next_step_index());
+    play_step(next_step());
     update_clock();
   }
   time_passed++;

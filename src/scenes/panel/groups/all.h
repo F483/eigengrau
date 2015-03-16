@@ -7,6 +7,7 @@
 #include <src/scenes/panel/group.h>
 
 extern Group group_bpm;
+extern Group group_lfo;
 extern Group group_fm_ctrl_sqr1;
 extern Group group_fm_ctrl_sqr2;
 extern Group group_fm_ctrl_noise;
