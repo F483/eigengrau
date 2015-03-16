@@ -17,10 +17,35 @@ void module_bpm_draw(Bool active);
 // LFO //
 /////////
 
-void module_lfo_a_tick(Bool active);
-void module_lfo_a_draw(Bool active);
-void module_lfo_b_tick(Bool active);
-void module_lfo_b_draw(Bool active);
+void module_lfo_sqr1_a_tick(Bool active);
+void module_lfo_sqr1_a_draw(Bool active);
+void module_lfo_sqr1_b_tick(Bool active);
+void module_lfo_sqr1_b_draw(Bool active);
+
+void module_lfo_sqr2_a_tick(Bool active);
+void module_lfo_sqr2_a_draw(Bool active);
+void module_lfo_sqr2_b_tick(Bool active);
+void module_lfo_sqr2_b_draw(Bool active);
+
+void module_lfo_wave_a_tick(Bool active);
+void module_lfo_wave_a_draw(Bool active);
+void module_lfo_wave_b_tick(Bool active);
+void module_lfo_wave_b_draw(Bool active);
+
+void module_lfo_noise_a_tick(Bool active);
+void module_lfo_noise_a_draw(Bool active);
+void module_lfo_noise_b_tick(Bool active);
+void module_lfo_noise_b_draw(Bool active);
+
+void module_lfo_smpl1_a_tick(Bool active);
+void module_lfo_smpl1_a_draw(Bool active);
+void module_lfo_smpl1_b_tick(Bool active);
+void module_lfo_smpl1_b_draw(Bool active);
+
+void module_lfo_smpl2_a_tick(Bool active);
+void module_lfo_smpl2_a_draw(Bool active);
+void module_lfo_smpl2_b_tick(Bool active);
+void module_lfo_smpl2_b_draw(Bool active);
 
 
 /////////////////
