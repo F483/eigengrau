@@ -19,19 +19,25 @@
 #define KEY_WAVE_INC  INPUT_KEY_A
 #define KEY_WAVE_DEC  INPUT_KEY_B
 
-#define LFO_A         0
-#define LFO_B         1
-
-inline void lfo_tick(Bool active, SequencerTrack track, Uint32 lfo_num){
-  SUPPRESS_UNUSED(active);
-  SUPPRESS_UNUSED(track);
-  SUPPRESS_UNUSED(lfo_num);
+inline void lfo_tick(Bool active, SequencerTrack track, Uint16 lfo_num){
+  if(!active){
+    return;
+  }
+  if(input_key_hit(KEY_RATE_INC)){
+    sequencer_lfo_rate_next(track, lfo_num);
+  } else if (input_key_hit(KEY_RATE_DEC)){
+    sequencer_lfo_rate_prev(track, lfo_num);
+  }
+  if(input_key_hit(KEY_WAVE_INC)){
+    sequencer_lfo_wave_next(track, lfo_num);
+  } else if (input_key_hit(KEY_WAVE_DEC)){
+    sequencer_lfo_wave_prev(track, lfo_num);
+  }
 }
 
-inline void lfo_draw(Bool active, SequencerTrack track, Uint32 lfo_num){
-  SUPPRESS_UNUSED(track);
-  Uint8 rate = 12; // TODO get rate
-  Uint8 wave = 0;  // TODO get wave
+inline void lfo_draw(Bool active, SequencerTrack track, Uint16 lfo_num){
+  Uint8 rate = sequencer_lfo_rate_get(track, lfo_num);
+  Uint8 wave = sequencer_lfo_wave_get(track, lfo_num);
 
   Uint16 palbank = active ? 1 : 0;
   Font font_char = { FONT_TILES, palbank, PANEL_HUD_MAPMEM };
