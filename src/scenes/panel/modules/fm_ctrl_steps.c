@@ -7,8 +7,8 @@
 #include <src/scenes/panel/main.h>
 
 #define BG_MAP        (const Uint16*)&sequencer_bg_Map
-#define FONT_TILES    (INDEX_2D(7, 20, 32, BG_MAP) bitand TME_TILE_ID_MASK)
-#define X             1
+#define FONT_TILES    (INDEX_2D(11, 20, 32, BG_MAP) bitand TME_TILE_ID_MASK)
+#define X             6
 #define Y             7
 #define LABEL_X       0
 #define LABEL_Y       23
@@ -23,10 +23,9 @@ static void draw(Bool active, SequencerTrack track){
 
   tme_cp_tile(LABEL_X + 0, LABEL_Y, BG_MAP, X + 0, Y, mem, 0, 0, palbank);
   tme_cp_tile(LABEL_X + 1, LABEL_Y, BG_MAP, X + 1, Y, mem, 0, 0, palbank);
-  tme_cp_tile(LABEL_X + 2, LABEL_Y, BG_MAP, X + 2, Y, mem, 0, 0, palbank);
 
   Uint16 value = sequencer_cfg_fm_ctrl_steps_get(track);
-  font_print_dial(&font, X + 3, Y, (value * 2) + 14);
+  font_print_dial(&font, X + 2, Y, (value * 2) + 14);
 }
 
 static void tick(Bool active, SequencerTrack track){

@@ -11,7 +11,7 @@
 #define DEFAULT   SQR1
 #define TILE_OFF  INDEX_2D(0, 20, 32, BG_MAP)
 #define TILE_ON   INDEX_2D(1, 20, 32, BG_MAP)
-#define POS_X     10
+#define POS_X     14
 #define POS_Y     1
 
 #define KEYS_NEXT INPUT_KEY_SELECT // FIXME INPUT_KEY_L

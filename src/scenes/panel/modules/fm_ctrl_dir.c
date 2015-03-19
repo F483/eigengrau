@@ -7,11 +7,11 @@
 #include <src/scenes/panel/main.h>
 
 #define BG_MAP    (const Uint16*)&sequencer_bg_Map
-#define X         1
+#define X         6
 #define Y         5
 #define LABEL_X   0
 #define LABEL_Y   24
-#define VAL_X     5
+#define VAL_X     9
 #define VAL_Y     20
 
 #define KEYS      (INPUT_KEY_A | INPUT_KEY_RIGHT | INPUT_KEY_B | INPUT_KEY_LEFT)
@@ -23,8 +23,7 @@ static void draw(Bool active, SequencerTrack track){
 
   tme_cp_tile(LABEL_X + 0, LABEL_Y, BG_MAP, X + 0, Y, mem, 0, 0, palbank);
   tme_cp_tile(LABEL_X + 1, LABEL_Y, BG_MAP, X + 1, Y, mem, 0, 0, palbank);
-  tme_cp_tile(LABEL_X + 2, LABEL_Y, BG_MAP, X + 2, Y, mem, 0, 0, palbank);
-  tme_cp_tile(VAL_X + val, VAL_Y,   BG_MAP, X + 3, Y, mem, 0, 0, palbank);
+  tme_cp_tile(VAL_X + val, VAL_Y,   BG_MAP, X + 2, Y, mem, 0, 0, palbank);
 }
 
 static void tick(Bool active, SequencerTrack track){

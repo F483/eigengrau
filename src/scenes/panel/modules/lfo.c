@@ -11,8 +11,8 @@
 #define DIAL_TILES    (INDEX_2D(7, 20, 32, BG_MAP) bitand TME_TILE_ID_MASK)
 #define WAVE_TILES    (INDEX_2D(7 + 16, 20, 32, BG_MAP) bitand TME_TILE_ID_MASK)
 
-#define POS_X         24
-#define POS_Y         1
+#define POS_X         1
+#define POS_Y         4
 
 #define KEY_RATE_INC  INPUT_KEY_RIGHT
 #define KEY_RATE_DEC  INPUT_KEY_LEFT

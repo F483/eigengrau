@@ -5,11 +5,11 @@
 //
 //	sequencer_bg_, 256x256@4, 
 //	+ palette 256 entries, not compressed
-//	+ 233 tiles (t|p reduced) not compressed
+//	+ 242 tiles (t|p reduced) not compressed
 //	+ regular map (flat), not compressed, 32x32 
-//	Total size: 512 + 7456 + 2048 = 10016
+//	Total size: 512 + 7744 + 2048 = 10304
 //
-//	Time-stamp: 2015-03-16, 17:10:19
+//	Time-stamp: 2015-03-18, 23:14:24
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.3
 //	( http://www.coranac.com/projects/#grit )
 //
@@ -18,8 +18,8 @@
 #ifndef GRIT_SEQUENCER_BG__H
 #define GRIT_SEQUENCER_BG__H
 
-#define sequencer_bg_TilesLen 7456
-extern const unsigned short sequencer_bg_Tiles[3728];
+#define sequencer_bg_TilesLen 7744
+extern const unsigned short sequencer_bg_Tiles[3872];
 
 #define sequencer_bg_MapLen 2048
 extern const unsigned short sequencer_bg_Map[1024];
