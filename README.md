@@ -2,6 +2,8 @@
 
 A synth and step sequcencer for the GBA.
 
+![screenshot](screenshot.png?raw=true)
+
 
 ## Download
 
