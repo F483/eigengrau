@@ -15,11 +15,11 @@ typedef enum {
   SMPL2 = 5
 } SequencerTrack;
 
-#define SEQUENCER_TRACK_CNT         6
+#define SEQUENCER_TRACK_COUNT         6
 #define SEQUENCER_CFG_NORMAL(track) (sequence_tracks_active[(track)].normal)
 
-extern Sequence sequence_tracks_active[SEQUENCER_TRACK_CNT];
-extern Sequence sequence_tracks_queued[SEQUENCER_TRACK_CNT];
+extern Sequence sequence_tracks_active[SEQUENCER_TRACK_COUNT];
+extern Sequence sequence_tracks_queued[SEQUENCER_TRACK_COUNT];
 
 inline void sequencer_cfg_fm_ctrl_duty_set(SequencerTrack track, Sint16 duty){
   BIT_CLEAR(SEQUENCER_CFG_NORMAL(track).fm_ctrl, SND_SQR_DUTY_MASK);

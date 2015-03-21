@@ -15,7 +15,7 @@ typedef struct {
   Uint16          flags;
   Uint16          fm_sweep;
   Uint16          fm_ctrl;
-  Uint16          lfos;
+  Uint16          lfos[2];
 } SequenceCfg;
 
 typedef struct {

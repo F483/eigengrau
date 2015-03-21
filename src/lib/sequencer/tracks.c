@@ -3,6 +3,6 @@
 
 #include <src/lib/sequencer/all.h>
 
-Sequence sequence_tracks_active[SEQUENCER_TRACK_CNT];
-Sequence sequence_tracks_queued[SEQUENCER_TRACK_CNT];
+Sequence sequence_tracks_active[SEQUENCER_TRACK_COUNT];
+Sequence sequence_tracks_queued[SEQUENCER_TRACK_COUNT];
 

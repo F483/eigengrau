@@ -50,7 +50,7 @@ Group* groups_noise[3] = {
   &group_lfo_noise
 };
 
-Bundle bundles[SEQUENCER_TRACK_CNT] = {
+Bundle bundles[SEQUENCER_TRACK_COUNT] = {
   { 3, 0, groups_sqr1 },  // sqr1
   { 3, 0, groups_sqr2 },  // sqr2
   { 0, 0, NULL },         // wave

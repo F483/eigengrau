@@ -16,6 +16,6 @@ typedef struct {
 void bundle_draw(Bundle* bundle);
 void bundle_tick(Bundle* bundle);
 
-extern Bundle bundles[SEQUENCER_TRACK_CNT];
+extern Bundle bundles[SEQUENCER_TRACK_COUNT];
 
 #endif

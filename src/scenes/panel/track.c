@@ -30,7 +30,7 @@ void panel_track_draw(){
 }
 
 void panel_track_tick(){
-  Uint32 cnt = SEQUENCER_TRACK_CNT;
+  Uint32 cnt = SEQUENCER_TRACK_COUNT;
   if(input_key_hit(KEYS_NEXT)){
     previous = selected;
     selected = wrap_index_next(cnt, selected);

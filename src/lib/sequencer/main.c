@@ -7,8 +7,8 @@
 void sequencer_init(){
 
   // init sequences
-  memset(&sequence_tracks_active,  0, sizeof(Sequence) * SEQUENCER_TRACK_CNT);
-  memset(&sequence_tracks_queued,  0, sizeof(Sequence) * SEQUENCER_TRACK_CNT);
+  memset(&sequence_tracks_active,  0, sizeof(Sequence) * SEQUENCER_TRACK_COUNT);
+  memset(&sequence_tracks_queued,  0, sizeof(Sequence) * SEQUENCER_TRACK_COUNT);
 
   // enable sound
   snd_reg_status = SND_STATUS_ENABLE;

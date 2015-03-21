@@ -7,8 +7,8 @@
 #include <src/lib/common.h>
 
 typedef struct {
-  Uint16  tiles;
-  Uint16  palbank;
+  Uint16  tiles;    // tile id of the first tile
+  Uint16  palbank;  // which palbank to use
   Uint16* map;
 } Font;
 
