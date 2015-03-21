@@ -2,16 +2,20 @@
 
 A synth and step sequcencer for the GBA.
 
-# Installation for development
 
-    # install apt package dependencies for ubuntu
-    sudo apt-get -qy install vbaexpress
+# Support the project
+
+Bitcoin: 1KzLiDEDZNgHWz47BE7crYD8tRLZWuC8bt
+
+Paypal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GZZQGNS9AA93U)
+
+
+# Setup development environment (linux)
 
     # Clone repository
-    cd where/you/keep/your/repos
-    git clone https://github.com/F483/eigengrau
+    git clone git@github.com:F483/eigengrau.git
     cd eigengrau
 
-    # install devkitPro to building gba games
-    sudo bin/install_devkitpro.sh
+    # install devkitPro for building gba games
+    sudo bin/install_devkitpro.sh # installs to ~/devkitPro
 
