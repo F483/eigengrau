@@ -1,0 +1,38 @@
+
+/* fix design */
+
+.container {
+  width: 800px;
+}
+
+body {
+  background-color: #181820;
+  margin-top: 20px;
+  color: #b8b8b8;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #b8b8b8;
+}
+
+.button_box {
+  width: 225px;
+}
+
+/* Donate with bitcoin style */
+.donate_bitcoin {
+  font-size: 18px;
+}
+
+/* text formatting */
+.fontsize_xxl { font-size: xx-large; }                                                                          
+.fontsize_xl { font-size: x-large; } 
+.fontsize_l { font-size: large; }
+.fontsize_m { font-size: medium; }
+.fontsize_s { font-size: small; }
+.fontsize_xs { font-size: x-small; }
+.fontsize_xxs { font-size: xx-small; }
+.text_center { text-align: center; }
+.text_right { text-align: right; }
+.text_left { text-align: left; }
+
