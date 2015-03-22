@@ -16,12 +16,18 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .button_box {
-  width: 225px;
+  width: 240px;
 }
 
 /* Donate with bitcoin style */
 .donate_bitcoin {
   font-size: 18px;
+}
+
+/* Donate with bitcoin style */
+.social_column {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 /* text formatting */
