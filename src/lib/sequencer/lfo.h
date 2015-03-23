@@ -28,9 +28,9 @@ typedef enum {
   LFO_WAVE_SQUARE   = 1,
   LFO_WAVE_PULSE    = 2,
   LFO_WAVE_TRIGGER  = 3,
-  LFO_WAVE_TRIANGLE = 4,
-  LFO_WAVE_SAW_INC  = 5,
-  LFO_WAVE_SAW_DEC  = 6
+  LFO_WAVE_SAW_DEC  = 4,
+  LFO_WAVE_TRIANGLE = 5,
+  LFO_WAVE_SAW_INC  = 6
 } LFOWave;
 #define LFO_WAVE_COUNT    7
 

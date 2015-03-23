@@ -8,7 +8,7 @@
 
 #define BG_MAP        (const Uint16*)&sequencer_bg_Map
 #define FONT_TILES    (INDEX_2D(0, 29, 32, BG_MAP) bitand TME_TILE_ID_MASK)
-#define POS_X         6
+#define POS_X         22
 #define POS_Y         1
 
 #define KEYS_INC      (INPUT_KEY_A | INPUT_KEY_RIGHT)
