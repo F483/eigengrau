@@ -4,7 +4,7 @@
 
 MODE = debug
 EMULATOR = gvba
-GAME = eigengrau
+GAME = eigengrau_alpha
 
 
 #########

@@ -2,7 +2,7 @@
 
 A synth and step sequcencer for the GBA.
 
-Download latest build: [eigengrau.gba](eigengrau.gba?raw=true)
+Download latest build: [eigengrau.gba](eigengrau_alpha.gba?raw=true)
 
 
 ## Support the project
