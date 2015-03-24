@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="image/x-icon" rel="icon" href="/favicon.png">
+    <link type="image/x-icon" rel="icon" href="images/favicon.png">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="Copyright" content="Fabian Barkhau 2014" />
 
@@ -21,7 +21,9 @@
 
     <header>
       <div class="container text_center"">
-        <img src="images/logo.png" alt="eigengrau">
+        <div class="logo">
+          <img src="images/logo.png" alt="eigengrau">
+        </div>
         <p class="lead">A synthesizer and step sequcencer for the GBA.</p>
       </div>
     </header>
@@ -32,7 +34,7 @@
           <section id="main_content">
 
             <p>
-              <img src="https://github.com/F483/eigengrau/raw/master/screenshot.png" alt="screenshot">
+              <img class="screenshot" src="https://github.com/F483/eigengrau/raw/master/screenshot.png" alt="screenshot">
             </p>
 
             <div class="row">
@@ -78,48 +80,31 @@
           </section>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-4 text_center">
 
-          <div class="button_box text_center">
             <p>
-              <a href="https://github.com/F483/eigengrau/blob/master/eigengrau.gba?raw=true"
+              <a href="https://github.com/F483/eigengrau/blob/master/eigengrau_alpha.gba?raw=true"
                  class="btn btn-success btn-lg btn-block">
                  <i class="fa fa-download"></i>
-                 Download prototype
+                 Get latest build
               </a>
             </p>
 
             <div class="well well-sm">
-              <div class="row">
-                <div class="col-sm-4 social_column text_right">
-
-                  <!-- facebook share -->
-                  <div id="fb-root"></div>
-                  <script>(function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-                    fjs.parentNode.insertBefore(js, fjs);
-                  }(document, 'script', 'facebook-jssdk'));</script>
-                  <div class="fb-share-button" data-href="http://f483.github.io/eigengrau/" data-layout="button"></div>
-
-                </div>
-                <div class="col-sm-4 social_column text_center">
-
-                  <!-- twitter share -->
-                  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://f483.github.io/eigengrau/" data-count="none">Tweet</a>
-                  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-                </div>
-                <div class="col-sm-4 social_column text_left">
-                  <a href="https://github.com/F483/eigengrau"
-                     class="btn btn-default btn-xs">
-                    <i class="fa fa-github"></i> github
-                  </a>
-
-                </div>
-              </div>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://f483.github.io/eigengrau/"
+                 class="btn btn-primary btn-xs" target="_blank">
+                 <i class="fa fa-facebook"></i>
+                 Share
+              </a>
+              <a href="https://twitter.com/home?status=Eigengrau%20http://f483.github.io/eigengrau/"
+                 class="btn btn-primary btn-xs" target="_blank">
+                 <i class="fa fa-twitter"></i>
+                 Tweet
+              </a>
+              <a href="https://github.com/F483/eigengrau"
+                 class="btn btn-default btn-xs">
+                <i class="fa fa-github"></i> github
+              </a>
             </div>
 
             <hr />
@@ -131,33 +116,24 @@
 
             <p>
               <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KVELW5BR8LJZJ"
-                 target="_blank" class="btn btn-default btn-lg btn-block">
+                 target="_blank" class="btn btn-warning btn-lg btn-block">
                 <i class="fa fa-paypal"></i>
                 Donate with Paypal
               </a>
             </p>
 
-            <!--p>
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-              <input type="hidden" name="cmd" value="_s-xclick">
-              <input type="hidden" name="hosted_button_id" value="KVELW5BR8LJZJ">
-              <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-              <img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
-              </form>
-            </p-->
-
             <div class="well well-sm">
               <p>
-                <span class="donate_bitcoin"><i class="fa fa-btc"></i> 
+                <span class="donate_bitcoin">
+                  <i class="fa fa-btc"></i> 
                   Donate with Bitcoin 
-                </span>
+                </span><br />
                 <span class="fontsize_xs">
                   1KzLiDEDZNgHWz47BE7crYD8tRLZWuC8bt
                 </span>
               </p>
 
               <p><img src="images/bitcoin_qrcode.png" alt="Donate Bitcoin"></p>
-            </div>
           </div>
 
         </div>
