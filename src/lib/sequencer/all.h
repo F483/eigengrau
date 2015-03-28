@@ -6,8 +6,7 @@
 
 #include <src/lib/sequencer/clock.h>
 #include <src/lib/sequencer/lfo.h>
-#include <src/lib/sequencer/tracks.h>
-#include <src/lib/sequencer/sequence.h>
+#include <src/lib/sequencer/fm_ctrl.h>
 #include <src/lib/sequencer/main.h>
 
 #endif

@@ -9,7 +9,7 @@
 #define BG_MAP      (const Uint16*)&sequencer_bg_Map
 #define DIAL_TILES  (INDEX_2D(11, 20, 32, BG_MAP) bitand TME_TILE_ID_MASK)
 
-#define X           6
+#define X           5
 #define Y           1
 
 #define DUTY_X      0
@@ -36,7 +36,7 @@
 #define KEYS        (KEYS_INC | KEYS_DEC)
 
 void duty_draw(Bool active, SequencerTrack track){
-  Uint16 val = sequencer_cfg_fm_ctrl_duty_get(track);
+  Uint16 val = sequencer_fm_ctrl_duty_get(track);
   Uint16 palbank = active ? 1 : 0;
   Uint16* mem = PANEL_HUD_MAPMEM;
   tme_cp_tile(DUTY_X + 0, DUTY_Y, BG_MAP, X + 0, Y, mem, 0, 0, palbank);
@@ -50,16 +50,16 @@ void duty_tick(Bool active, SequencerTrack track){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_duty_get(track);
-    sequencer_cfg_fm_ctrl_duty_set(track, wrap_index_next(3, value));
+    Uint16 value = sequencer_fm_ctrl_duty_get(track);
+    sequencer_fm_ctrl_duty_set(track, wrap_index_next(3, value));
   } else if (input_key_hit(KEYS_DEC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_duty_get(track);
-    sequencer_cfg_fm_ctrl_duty_set(track, wrap_index_prev(3, value));
+    Uint16 value = sequencer_fm_ctrl_duty_get(track);
+    sequencer_fm_ctrl_duty_set(track, wrap_index_prev(3, value));
   }
 }
 
 void dir_draw(Bool active, SequencerTrack track){
-  Uint16 val = sequencer_cfg_fm_ctrl_dir_get(track);
+  Uint16 val = sequencer_fm_ctrl_dir_get(track);
   Uint16 palbank = active ? 1 : 0;
   Uint16* mem = PANEL_HUD_MAPMEM;
   tme_cp_tile(DIR_X + 0, DIR_Y, BG_MAP, X + 0, Y + 1, mem, 0, 0, palbank);
@@ -73,8 +73,8 @@ void dir_tick(Bool active, SequencerTrack track){
     return;
   }
   if(input_key_hit(KEYS)){
-    Uint16 value = sequencer_cfg_fm_ctrl_dir_get(track);
-    sequencer_cfg_fm_ctrl_dir_set(track, wrap_index_next(2, value));
+    Uint16 value = sequencer_fm_ctrl_dir_get(track);
+    sequencer_fm_ctrl_dir_set(track, wrap_index_next(2, value));
   }
 }
 
@@ -86,7 +86,7 @@ void ivol_draw(Bool active, SequencerTrack track){
   tme_cp_tile(IVOL_X + 0, IVOL_Y, BG_MAP, X + 0, Y + 2, mem, 0, 0, palbank);
   tme_cp_tile(IVOL_X + 1, IVOL_Y, BG_MAP, X + 1, Y + 2, mem, 0, 0, palbank);
 
-  Uint16 value = sequencer_cfg_fm_ctrl_ivol_get(track);
+  Uint16 value = sequencer_fm_ctrl_ivol_get(track);
   font_print_dial(&font, X + 2, Y + 2, value);
 }
 
@@ -95,11 +95,11 @@ void ivol_tick(Bool active, SequencerTrack track){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_ivol_get(track);
-    sequencer_cfg_fm_ctrl_ivol_set(track, wrap_index_next(16, value));
+    Uint16 value = sequencer_fm_ctrl_ivol_get(track);
+    sequencer_fm_ctrl_ivol_set(track, wrap_index_next(16, value));
   } else if (input_key_hit(KEYS_DEC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_ivol_get(track);
-    sequencer_cfg_fm_ctrl_ivol_set(track, wrap_index_prev(16, value));
+    Uint16 value = sequencer_fm_ctrl_ivol_get(track);
+    sequencer_fm_ctrl_ivol_set(track, wrap_index_prev(16, value));
   }
 }
 
@@ -111,7 +111,7 @@ void steps_draw(Bool active, SequencerTrack track){
   tme_cp_tile(STEPS_X + 0, STEPS_Y, BG_MAP, X + 0, Y + 3, mem, 0, 0, palbank);
   tme_cp_tile(STEPS_X + 1, STEPS_Y, BG_MAP, X + 1, Y + 3, mem, 0, 0, palbank);
 
-  Uint16 value = sequencer_cfg_fm_ctrl_steps_get(track);
+  Uint16 value = sequencer_fm_ctrl_steps_get(track);
   font_print_dial(&font, X + 2, Y + 3, (value * 2) + 14);
 }
 
@@ -120,11 +120,11 @@ void steps_tick(Bool active, SequencerTrack track){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_steps_get(track);
-    sequencer_cfg_fm_ctrl_steps_set(track, wrap_index_next(8, value));
+    Uint16 value = sequencer_fm_ctrl_steps_get(track);
+    sequencer_fm_ctrl_steps_set(track, wrap_index_next(8, value));
   } else if (input_key_hit(KEYS_DEC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_steps_get(track);
-    sequencer_cfg_fm_ctrl_steps_set(track, wrap_index_prev(8, value));
+    Uint16 value = sequencer_fm_ctrl_steps_get(track);
+    sequencer_fm_ctrl_steps_set(track, wrap_index_prev(8, value));
   }
 }
 
@@ -136,7 +136,7 @@ void len_draw(Bool active, SequencerTrack track){
   tme_cp_tile(LEN_X + 0, LEN_Y, BG_MAP, X + 0, Y + 4, mem, 0, 0, palbank);
   tme_cp_tile(LEN_X + 1, LEN_Y, BG_MAP, X + 1, Y + 4, mem, 0, 0, palbank);
 
-  Uint16 value = sequencer_cfg_fm_ctrl_len_get(track);
+  Uint16 value = sequencer_fm_ctrl_len_get(track);
   font_print_dial(&font, X + 2, Y + 4, (63 - value) / 4);
 }
 
@@ -145,11 +145,11 @@ void len_tick(Bool active, SequencerTrack track){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_len_get(track);
-    sequencer_cfg_fm_ctrl_len_set(track, wrap_index(64, value, -4));
+    Uint16 value = sequencer_fm_ctrl_len_get(track);
+    sequencer_fm_ctrl_len_set(track, wrap_index(64, value, -4));
   } else if (input_key_hit(KEYS_DEC)){
-    Uint16 value = sequencer_cfg_fm_ctrl_len_get(track);
-    sequencer_cfg_fm_ctrl_len_set(track, wrap_index(64, value, 4));
+    Uint16 value = sequencer_fm_ctrl_len_get(track);
+    sequencer_fm_ctrl_len_set(track, wrap_index(64, value, 4));
   }
 }
 

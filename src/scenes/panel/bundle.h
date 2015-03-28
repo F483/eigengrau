@@ -4,7 +4,7 @@
 #ifndef PANEL_BUNDLE_H
 #define PANEL_BUNDLE_H
 
-#include <src/lib/sequencer/tracks.h>
+#include <src/lib/all.h>
 #include <src/scenes/panel/group.h>
 
 typedef struct {

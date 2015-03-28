@@ -56,9 +56,9 @@ inline void update_clock(){
 inline void play_step(Uint32 index){
 
   // copy sound config
-  snd_reg_c1_ctrl = sequence_tracks_active[SQR1].normal.fm_ctrl;
-  snd_reg_c2_ctrl = sequence_tracks_active[SQR2].normal.fm_ctrl;
-  snd_reg_c4_ctrl = sequence_tracks_active[NOISE].normal.fm_ctrl;
+  snd_reg_c1_ctrl = sequencer_active_setup(SQR1)->fm_ctrl;
+  snd_reg_c2_ctrl = sequencer_active_setup(SQR2)->fm_ctrl;
+  snd_reg_c4_ctrl = sequencer_active_setup(NOISE)->fm_ctrl;
 
   play_notes(index);
 }

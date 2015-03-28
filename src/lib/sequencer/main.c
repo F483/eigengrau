@@ -4,11 +4,12 @@
 #include <src/gba/all.h>
 #include <src/lib/all.h>
 
+Sequencer sequencer;
+
 void sequencer_init(){
 
-  // init sequences
-  memset(&sequence_tracks_active,  0, sizeof(Sequence) * SEQUENCER_TRACK_COUNT);
-  memset(&sequence_tracks_queued,  0, sizeof(Sequence) * SEQUENCER_TRACK_COUNT);
+  // init sequencer
+  memset(&sequencer,  0, sizeof(Sequencer));
 
   // enable sound
   snd_reg_status = SND_STATUS_ENABLE;

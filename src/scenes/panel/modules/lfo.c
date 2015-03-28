@@ -33,42 +33,41 @@
 #define KEYS_INC      (INPUT_KEY_A | INPUT_KEY_RIGHT)
 #define KEYS_DEC      (INPUT_KEY_B | INPUT_KEY_LEFT)
 
-LFONum lfo_selected[SEQUENCER_TRACK_COUNT];
+LFONum lfo_selected;
 
-void lfo_select_tick(Bool active, SequencerTrack track){
+void module_lfo_select_tick(Bool active){
   if(!active){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    lfo_selected[track] = wrap_index_next(LFO_NUM_COUNT, lfo_selected[track]);
+    lfo_selected = wrap_index_next(LFO_NUM_COUNT, lfo_selected);
   } else if (input_key_hit(KEYS_DEC)){
-    lfo_selected[track] = wrap_index_prev(LFO_NUM_COUNT, lfo_selected[track]);
+    lfo_selected = wrap_index_prev(LFO_NUM_COUNT, lfo_selected);
   }
 }
 
-void lfo_select_draw(Bool active, SequencerTrack track){
-  LFONum value = lfo_selected[track];
+void module_lfo_select_draw(Bool active){
   Uint16 palbank = active ? 1 : 0;
   Uint16* mem = PANEL_HUD_MAPMEM;
   tme_cp_tile(SELECT_X + 0, SELECT_Y, BG_MAP, X + 0, Y + 0, mem, 0, 0, palbank);
   tme_cp_tile(SELECT_X + 1, SELECT_Y, BG_MAP, X + 1, Y + 0, mem, 0, 0, palbank);
-  tme_cp_tile(SELECT_VAL_X + value, SELECT_VAL_Y, BG_MAP,
+  tme_cp_tile(SELECT_VAL_X + lfo_selected, SELECT_VAL_Y, BG_MAP,
               X + 2, Y + 0, mem, 0, 0, palbank);
 }
 
-void lfo_wave_tick(Bool active, SequencerTrack track){
+void module_lfo_wave_tick(Bool active){
   if(!active){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    lfo_wave_inc(track, lfo_selected[track]);
+    lfo_wave_inc(lfo_selected);
   } else if (input_key_hit(KEYS_DEC)){
-    lfo_wave_dec(track, lfo_selected[track]);
+    lfo_wave_dec(lfo_selected);
   }
 }
 
-void lfo_wave_draw(Bool active, SequencerTrack track){
-  LFOWave value = lfo_wave_get(track, lfo_selected[track]);
+void module_lfo_wave_draw(Bool active){
+  LFOWave value = lfo_wave_get(lfo_selected);
   Uint16 palbank = active ? 1 : 0;
   Uint16* mem = PANEL_HUD_MAPMEM;
   tme_cp_tile(WAVE_X + 0, WAVE_Y, BG_MAP, X + 0, Y + 1, mem, 0, 0, palbank);
@@ -77,19 +76,19 @@ void lfo_wave_draw(Bool active, SequencerTrack track){
               X + 2, Y + 1, mem, 0, 0, palbank);
 }
 
-void lfo_rate_tick(Bool active, SequencerTrack track){
+void module_lfo_rate_tick(Bool active){
   if(!active){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    lfo_rate_inc(track, lfo_selected[track]);
+    lfo_rate_inc(lfo_selected);
   } else if (input_key_hit(KEYS_DEC)){
-    lfo_rate_dec(track, lfo_selected[track]);
+    lfo_rate_dec(lfo_selected);
   }
 }
 
-void lfo_rate_draw(Bool active, SequencerTrack track){
-  Uint16 value = lfo_rate_get(track, lfo_selected[track]);
+void module_lfo_rate_draw(Bool active){
+  Uint16 value = lfo_rate_get(lfo_selected);
   Uint16 palbank = active ? 1 : 0;
   Uint16* mem = PANEL_HUD_MAPMEM;
   tme_cp_tile(RATE_X + 0, RATE_Y, BG_MAP, X + 0, Y + 2, mem, 0, 0, palbank);
@@ -98,19 +97,19 @@ void lfo_rate_draw(Bool active, SequencerTrack track){
   font_print_dial(&font, X + 2, Y + 2, value);
 }
 
-void lfo_min_tick(Bool active, SequencerTrack track){
+void module_lfo_min_tick(Bool active){
   if(!active){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    lfo_min_inc(track, lfo_selected[track]);
+    lfo_min_inc(lfo_selected);
   } else if (input_key_hit(KEYS_DEC)){
-    lfo_min_dec(track, lfo_selected[track]);
+    lfo_min_dec(lfo_selected);
   }
 }
 
-void lfo_min_draw(Bool active, SequencerTrack track){
-  Uint16 value = lfo_min_get(track, lfo_selected[track]);
+void module_lfo_min_draw(Bool active){
+  Uint16 value = lfo_min_get(lfo_selected);
   Uint16 palbank = active ? 1 : 0;
   Uint16* mem = PANEL_HUD_MAPMEM;
   tme_cp_tile(MIN_X + 0, MIN_Y, BG_MAP, X + 0, Y + 3, mem, 0, 0, palbank);
@@ -119,19 +118,19 @@ void lfo_min_draw(Bool active, SequencerTrack track){
   font_print_dial(&font, X + 2, Y + 3, value);
 }
 
-void lfo_max_tick(Bool active, SequencerTrack track){
+void module_lfo_max_tick(Bool active){
   if(!active){
     return;
   }
   if(input_key_hit(KEYS_INC)){
-    lfo_max_inc(track, lfo_selected[track]);
+    lfo_max_inc(lfo_selected);
   } else if (input_key_hit(KEYS_DEC)){
-    lfo_max_dec(track, lfo_selected[track]);
+    lfo_max_dec(lfo_selected);
   }
 }
 
-void lfo_max_draw(Bool active, SequencerTrack track){
-  Uint16 value = lfo_max_get(track, lfo_selected[track]);
+void module_lfo_max_draw(Bool active){
+  Uint16 value = lfo_max_get(lfo_selected);
   Uint16 palbank = active ? 1 : 0;
   Uint16* mem = PANEL_HUD_MAPMEM;
   tme_cp_tile(MAX_X + 0, MAX_Y, BG_MAP, X + 0, Y + 4, mem, 0, 0, palbank);
@@ -139,70 +138,4 @@ void lfo_max_draw(Bool active, SequencerTrack track){
   Font font = { DIAL_TILES, palbank, mem };
   font_print_dial(&font, X + 2, Y + 4, value);
 }
-
-void module_lfo_select_sqr1_tick(Bool active){ lfo_select_tick(active, SQR1); }
-void module_lfo_select_sqr1_draw(Bool active){ lfo_select_draw(active, SQR1); }
-void module_lfo_select_sqr2_tick(Bool active){ lfo_select_tick(active, SQR2); }
-void module_lfo_select_sqr2_draw(Bool active){ lfo_select_draw(active, SQR2); }
-void module_lfo_select_wave_tick(Bool active){ lfo_select_tick(active, WAVE); }
-void module_lfo_select_wave_draw(Bool active){ lfo_select_draw(active, WAVE); }
-void module_lfo_select_noise_tick(Bool active){ lfo_select_tick(active, NOISE); }
-void module_lfo_select_noise_draw(Bool active){ lfo_select_draw(active, NOISE); }
-void module_lfo_select_smpl1_tick(Bool active){ lfo_select_tick(active, SMPL1); }
-void module_lfo_select_smpl1_draw(Bool active){ lfo_select_draw(active, SMPL1); }
-void module_lfo_select_smpl2_tick(Bool active){ lfo_select_tick(active, SMPL2); }
-void module_lfo_select_smpl2_draw(Bool active){ lfo_select_draw(active, SMPL2); }
-
-void module_lfo_wave_sqr1_tick(Bool active){ lfo_wave_tick(active, SQR1); }
-void module_lfo_wave_sqr1_draw(Bool active){ lfo_wave_draw(active, SQR1); }
-void module_lfo_wave_sqr2_tick(Bool active){ lfo_wave_tick(active, SQR2); }
-void module_lfo_wave_sqr2_draw(Bool active){ lfo_wave_draw(active, SQR2); }
-void module_lfo_wave_wave_tick(Bool active){ lfo_wave_tick(active, WAVE); }
-void module_lfo_wave_wave_draw(Bool active){ lfo_wave_draw(active, WAVE); }
-void module_lfo_wave_noise_tick(Bool active){ lfo_wave_tick(active, NOISE); }
-void module_lfo_wave_noise_draw(Bool active){ lfo_wave_draw(active, NOISE); }
-void module_lfo_wave_smpl1_tick(Bool active){ lfo_wave_tick(active, SMPL1); }
-void module_lfo_wave_smpl1_draw(Bool active){ lfo_wave_draw(active, SMPL1); }
-void module_lfo_wave_smpl2_tick(Bool active){ lfo_wave_tick(active, SMPL2); }
-void module_lfo_wave_smpl2_draw(Bool active){ lfo_wave_draw(active, SMPL2); }
-
-void module_lfo_rate_sqr1_tick(Bool active){ lfo_rate_tick(active, SQR1); }
-void module_lfo_rate_sqr1_draw(Bool active){ lfo_rate_draw(active, SQR1); }
-void module_lfo_rate_sqr2_tick(Bool active){ lfo_rate_tick(active, SQR2); }
-void module_lfo_rate_sqr2_draw(Bool active){ lfo_rate_draw(active, SQR2); }
-void module_lfo_rate_wave_tick(Bool active){ lfo_rate_tick(active, WAVE); }
-void module_lfo_rate_wave_draw(Bool active){ lfo_rate_draw(active, WAVE); }
-void module_lfo_rate_noise_tick(Bool active){ lfo_rate_tick(active, NOISE); }
-void module_lfo_rate_noise_draw(Bool active){ lfo_rate_draw(active, NOISE); }
-void module_lfo_rate_smpl1_tick(Bool active){ lfo_rate_tick(active, SMPL1); }
-void module_lfo_rate_smpl1_draw(Bool active){ lfo_rate_draw(active, SMPL1); }
-void module_lfo_rate_smpl2_tick(Bool active){ lfo_rate_tick(active, SMPL2); }
-void module_lfo_rate_smpl2_draw(Bool active){ lfo_rate_draw(active, SMPL2); }
-
-void module_lfo_min_sqr1_tick(Bool active){ lfo_min_tick(active, SQR1); }
-void module_lfo_min_sqr1_draw(Bool active){ lfo_min_draw(active, SQR1); }
-void module_lfo_min_sqr2_tick(Bool active){ lfo_min_tick(active, SQR2); }
-void module_lfo_min_sqr2_draw(Bool active){ lfo_min_draw(active, SQR2); }
-void module_lfo_min_wave_tick(Bool active){ lfo_min_tick(active, WAVE); }
-void module_lfo_min_wave_draw(Bool active){ lfo_min_draw(active, WAVE); }
-void module_lfo_min_noise_tick(Bool active){ lfo_min_tick(active, NOISE); }
-void module_lfo_min_noise_draw(Bool active){ lfo_min_draw(active, NOISE); }
-void module_lfo_min_smpl1_tick(Bool active){ lfo_min_tick(active, SMPL1); }
-void module_lfo_min_smpl1_draw(Bool active){ lfo_min_draw(active, SMPL1); }
-void module_lfo_min_smpl2_tick(Bool active){ lfo_min_tick(active, SMPL2); }
-void module_lfo_min_smpl2_draw(Bool active){ lfo_min_draw(active, SMPL2); }
-
-void module_lfo_max_sqr1_tick(Bool active){ lfo_max_tick(active, SQR1); }
-void module_lfo_max_sqr1_draw(Bool active){ lfo_max_draw(active, SQR1); }
-void module_lfo_max_sqr2_tick(Bool active){ lfo_max_tick(active, SQR2); }
-void module_lfo_max_sqr2_draw(Bool active){ lfo_max_draw(active, SQR2); }
-void module_lfo_max_wave_tick(Bool active){ lfo_max_tick(active, WAVE); }
-void module_lfo_max_wave_draw(Bool active){ lfo_max_draw(active, WAVE); }
-void module_lfo_max_noise_tick(Bool active){ lfo_max_tick(active, NOISE); }
-void module_lfo_max_noise_draw(Bool active){ lfo_max_draw(active, NOISE); }
-void module_lfo_max_smpl1_tick(Bool active){ lfo_max_tick(active, SMPL1); }
-void module_lfo_max_smpl1_draw(Bool active){ lfo_max_draw(active, SMPL1); }
-void module_lfo_max_smpl2_tick(Bool active){ lfo_max_tick(active, SMPL2); }
-void module_lfo_max_smpl2_draw(Bool active){ lfo_max_draw(active, SMPL2); }
-
 

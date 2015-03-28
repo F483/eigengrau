@@ -4,7 +4,7 @@
 #ifndef LIB_SEQUENCER_CLOCK_H
 #define LIB_SEQUENCER_CLOCK_H
 
-#include <src/lib/sequencer/sequence.h>
+#include <src/lib/common.h>
 
 void   sequencer_tick();
 Uint32 sequencer_current_step();

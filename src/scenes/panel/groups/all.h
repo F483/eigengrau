@@ -8,16 +8,10 @@
 
 extern Group group_bpm;
 
-extern Group group_lfo;
 extern Group group_fm_ctrl_sqr1;
 extern Group group_fm_ctrl_sqr2;
 extern Group group_fm_ctrl_noise;
 
-extern Group group_lfo_sqr1;
-extern Group group_lfo_sqr2;
-extern Group group_lfo_wave;
-extern Group group_lfo_noise;
-extern Group group_lfo_smpl1;
-extern Group group_lfo_smpl2;
+extern Group group_lfo;
 
 #endif
